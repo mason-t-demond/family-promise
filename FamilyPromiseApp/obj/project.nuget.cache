@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xQgHkIhwMpb8q5fvi/7Ip4wTw+FrEZQDgMaqU+SpowhPkvkvqYQsL57/1ARP5zgIsxx0O7Fm4kL5XjRz/A0T5w==",
+  "dgSpecHash": "RsrJxGL39f13oQr2E5O3fuoQniI5kFl6oqlCsUP2WMhzsmSRIv91Rtf4TPU08hB5OJnRA0ONHI01iVwS1ezJoA==",
   "success": true,
-  "projectFilePath": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/labs/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
+  "projectFilePath": "/Users/thomasm/Desktop/Database_Websystems/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

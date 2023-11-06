@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/labs/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj": {}
+    "/Users/thomasm/Desktop/Database_Websystems/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj": {}
   },
   "projects": {
-    "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/labs/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj": {
+    "/Users/thomasm/Desktop/Database_Websystems/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/labs/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
+        "projectUniqueName": "/Users/thomasm/Desktop/Database_Websystems/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
         "projectName": "FamilyPromiseApp",
-        "projectPath": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/labs/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
-        "packagesPath": "/Users/jeanclaudentambara/.nuget/packages/",
-        "outputPath": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/labs/family-promise-web-app/FamilyPromiseApp/obj/",
+        "projectPath": "/Users/thomasm/Desktop/Database_Websystems/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
+        "packagesPath": "/Users/thomasm/.nuget/packages/",
+        "outputPath": "/Users/thomasm/Desktop/Database_Websystems/family-promise-web-app/FamilyPromiseApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jeanclaudentambara/.nuget/NuGet/NuGet.Config"
+          "/Users/thomasm/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
