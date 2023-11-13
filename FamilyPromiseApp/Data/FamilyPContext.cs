@@ -13,7 +13,7 @@ namespace FamilyPromiseApp.Data
         public DbSet<Referral>Referrals{ get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Referral>().ToTable("Referral");
+            modelBuilder.Entity<Referral>().ToTable(nameof(Referral));
         }
 
         

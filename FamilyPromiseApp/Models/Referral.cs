@@ -7,7 +7,7 @@ namespace FamilyPromiseApp.Models
         public string Category { get; set; }
         public string Status { get; set; }
         public string Address { get; set; }
-        public int ContactInfo { get; set; }
+        public string ContactInfo { get; set; }
         public string Notes { get; set; }
     }
 }
