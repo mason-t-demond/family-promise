@@ -23,9 +23,9 @@ namespace FamilyPromiseApp.Pages.Referrals
 
         public async Task OnGetAsync()
         {
-            if (_context.Referral != null)
+            if (_context.Referrals != null)
             {
-                Referral = await _context.Referral.ToListAsync();
+                Referral = await _context.Referrals.ToListAsync();
             }
         }
     }

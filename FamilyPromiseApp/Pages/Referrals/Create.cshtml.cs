@@ -36,7 +36,7 @@ namespace FamilyPromiseApp.Pages.Referrals
                 return Page();
             }
 
-            _context.Referral.Add(Referral);
+            _context.Referrals.Add(Referral);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

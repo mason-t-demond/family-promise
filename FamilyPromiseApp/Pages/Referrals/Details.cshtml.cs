@@ -23,12 +23,12 @@ namespace FamilyPromiseApp.Pages.Referrals
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Referral == null)
+            if (id == null || _context.Referrals == null)
             {
                 return NotFound();
             }
 
-            var referral = await _context.Referral.FirstOrDefaultAsync(m => m.ID == id);
+            var referral = await _context.Referrals.FirstOrDefaultAsync(m => m.ID == id);
             if (referral == null)
             {
                 return NotFound();
