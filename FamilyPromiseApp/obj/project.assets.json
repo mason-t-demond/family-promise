@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/Users/jeanclaudentambara/.nuget/packages/": {}
+    "/Users/ketsiadusenge/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/final project/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
+      "projectUniqueName": "/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
       "projectName": "FamilyPromiseApp",
-      "projectPath": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/final project/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
-      "packagesPath": "/Users/jeanclaudentambara/.nuget/packages/",
-      "outputPath": "/Users/jeanclaudentambara/Desktop/Fall2023/DatabaseWebSystems/final project/family-promise-web-app/FamilyPromiseApp/obj/",
+      "projectPath": "/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/FamilyPromiseApp.csproj",
+      "packagesPath": "/Users/ketsiadusenge/.nuget/packages/",
+      "outputPath": "/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jeanclaudentambara/.nuget/NuGet/NuGet.Config"
+        "/Users/ketsiadusenge/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
