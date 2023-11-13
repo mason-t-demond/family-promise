@@ -11,10 +11,15 @@ namespace FamilyPromiseApp.Data
         {
         }
         public DbSet<Referral>Referrals{ get; set; }
+        public DbSet<Resource>Resources{ get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Referral>().ToTable(nameof(Referral));
+            modelBuilder.Entity<Resource>().ToTable("Resource");
+
         }
+        public DbSet<FamilyPromiseApp.Models.Resource> Resource { get; set; }
 
         
     }

@@ -48,6 +48,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVmZXJyYWxzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/Pages/Resources/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzb3VyY2VzL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/Pages/Resources/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzb3VyY2VzL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/Pages/Resources/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzb3VyY2VzL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/Pages/Resources/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzb3VyY2VzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/Pages/Resources/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzb3VyY2VzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ketsiadusenge/Desktop/GIT projects/family-promise-web-app/FamilyPromiseApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
