@@ -23,6 +23,9 @@
 @foreach (var item in Model.Resource) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ResourceID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
