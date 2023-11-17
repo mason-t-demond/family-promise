@@ -15,7 +15,7 @@ namespace FamilyPromiseApp.Data
 
             var LIHWAP = new Referral
             {
-                ReferralID = 1,
+                ID = 1,
                 ReferralName ="LIHWAP",
                 Category ="Utility Assistance",
                 Status ="Inactive",
@@ -26,7 +26,7 @@ namespace FamilyPromiseApp.Data
             };
             var Central_AR_Development_Council_LiHEAP = new Referral
             {
-                ReferralID = 2,
+                ID = 2,
                 ReferralName = "Central AR Development Council LiHEAP",
                 Category ="Utility Assistance",
                 Status ="Inactive",
@@ -36,7 +36,7 @@ namespace FamilyPromiseApp.Data
             };
             var Entergy = new Referral
             {
-                ReferralID = 3,
+                ID = 3,
                 ReferralName = "Entergy",
                 Category ="Utility Assistance",
                 Status ="active",
@@ -46,7 +46,7 @@ namespace FamilyPromiseApp.Data
             };
             var St_Francis_House_Utility_Assistance_Program = new Referral
             {
-                ReferralID = 4,
+                ID = 4,
                 ReferralName = "St. Francis House Utility Assistance Program",
                 Category ="Utility Assistance",
                 Status ="active",
@@ -56,7 +56,7 @@ namespace FamilyPromiseApp.Data
             };
             var St_Vincent_De_Paul_Assistance_Program = new Referral
             {
-                ReferralID = 5,
+                ID = 5,
                 ReferralName = "St. Vincent De Paul Assistance Program",
                 Category ="Utility Assistance",
                 Status ="active",
@@ -79,28 +79,28 @@ namespace FamilyPromiseApp.Data
 
             var Social_Supports = new Resource
             {
-                ResourceID = 1,
+                ID = 1,
                 Category ="Utility Assistance",
  
             };
             var Solutions_for_Immediate_Housing_Crisis = new Resource
             {
-                ResourceID = 2,
+                ID = 2,
                 Category ="Solutions for Immediate Housing Crisis",
             };
             var Mediation_Conflict_Resolution_Services = new Resource
             {
-                ResourceID = 3,
+                ID = 3,
                 Category ="Mediation/Conflict Resolution Services",
             };
             var Stable_Housing_Plan = new Resource
             {
-                ResourceID = 4,
+                ID = 4,
                 Category ="Stable Housing Plan",
             };
             var Financial_Education = new Resource
             {
-                ResourceID = 5,
+                ID = 5,
                 Category ="Financial Education",
             };
             var resources = new Resource[]

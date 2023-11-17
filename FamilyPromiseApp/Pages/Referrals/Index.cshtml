@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Referral[0].ReferralID)
+                @Html.DisplayNameFor(model => model.Referral[0].ID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Referral[0].ReferralName)
@@ -40,6 +40,9 @@
     <tbody>
 @foreach (var item in Model.Referral) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ReferralName)
             </td>

@@ -2,6 +2,7 @@
 using FamilyPromiseApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    partial class FamilyPContextModelSnapshot : ModelSnapshot
+    [Migration("20231115182059_NewDB")]
+    partial class NewDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -34,6 +37,9 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ReferralID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ReferralName")
                         .HasColumnType("TEXT");
 
@@ -53,6 +59,9 @@ namespace FamilyPromiseApp.Migrations
 
                     b.Property<string>("Category")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("ResourceID")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 

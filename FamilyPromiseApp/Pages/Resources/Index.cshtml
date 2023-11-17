@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Resource[0].ID)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Resource[0].Category)
             </th>
             <th></th>
@@ -23,7 +26,7 @@
 @foreach (var item in Model.Resource) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ResourceID)
+                @Html.DisplayFor(modelItem => item.ID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category)
