@@ -355,8 +355,6 @@ namespace FamilyPromiseApp.Data
             };
             context.Resource.AddRange(resources);
             context.SaveChanges();
-            
-
         }
     }
 }
