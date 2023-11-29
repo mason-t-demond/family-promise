@@ -7,12 +7,13 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.navbar-brand {
+  margin-left: 20px;
+}
+
 
 a {
   color: #0077cc;
-}
-.navbar-brand{
-  background-color: rgb(242, 144, 242);
 }
 
 .btn-primary {
@@ -49,5 +50,7 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
-  background-color: rgb(242, 144, 242);
+  color: white;
+  /* background-color: rgb(242, 144, 242); */
+  background-color: #b498b4;
 }
