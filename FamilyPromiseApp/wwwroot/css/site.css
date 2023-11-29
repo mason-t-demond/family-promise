@@ -1,5 +1,7 @@
 html {
   font-size: 14px;
+  font-family: 'Montserrat';
+  font-weight: 400;
 }
 
 @media (min-width: 768px) {
@@ -20,4 +22,9 @@ html {
 body {
   margin-bottom: 60px;
   background-color: lightyellow;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-display: block;
+ font-size:large;
 }
