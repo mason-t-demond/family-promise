@@ -18,15 +18,36 @@ namespace FamilyPromiseApp.Pages.Resources
         {
             _context = context;
         }
+        public string CategorySort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
-        public IList<Resource> Resource { get;set; } = default!;
+        public IList<Resource> Resources { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder,string searchString)
         {
-            if (_context.Resources != null)
+            CategorySort = String.IsNullOrEmpty(sortOrder) ? "category_desc" : "";
+            CurrentFilter = searchString;
+            IQueryable<Resource> resourceid = from r in _context.Resources
+                                        select r;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                Resource = await _context.Resources.ToListAsync();
+                resourceid = resourceid.Where(r => r.Category.Contains(searchString)
+                                   );
             }
+
+            switch (sortOrder)
+            {
+                case "category_desc":
+                    resourceid = resourceid.OrderByDescending(r => r.Category);
+                    break;
+            
+                default:
+                    resourceid = resourceid.OrderBy(s => s.Category);
+                    break;
+            }
+
+            Resources = await resourceid.AsNoTracking().ToListAsync();
         }
     }
 }
