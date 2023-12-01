@@ -6,6 +6,7 @@ namespace FamilyPromiseApp.Models
 {
     public class NewCase
     {
+        [Display(Name = "Case ID")]
         public int ID { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }

@@ -15,6 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="NewCase.ID" />
             <div class="form-group">
+                <label asp-for="NewCase.ID" class="control-label"></label>
+                <input asp-for="NewCase.ID" class="form-control" />
+                <span asp-validation-for="NewCase.ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="NewCase.LastName" class="control-label"></label>
                 <input asp-for="NewCase.LastName" class="form-control" />
                 <span asp-validation-for="NewCase.LastName" class="text-danger"></span>
