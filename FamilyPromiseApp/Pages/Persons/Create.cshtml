@@ -105,20 +105,20 @@
                 @Html.DropDownListFor(model => model.Person.HouseHoldChildrenExist,
                                       new SelectList(Enum.GetValues(typeof(Models.AnyChildren))),
                                       "Select Yes or No",
-                                      new { @class = "form-select" })
+                                      new { @class = "form-select", id = "childExistDropdown" })
                 <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group childSection">
                 <label asp-for="Person.ChildName" class="control-label"></label>
                 <input asp-for="Person.ChildName" class="form-control" />
                 <span asp-validation-for="Person.ChildName" class="text-danger"></span>
             </div>
-             <div class="form-group">
+             <div class="form-group childSection">
                 <label asp-for="Person.ChildDateOfBirth" class="control-label"></label>
                 <input asp-for="Person.ChildDateOfBirth" class="form-control" />
                 <span asp-validation-for="Person.ChildDateOfBirth" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group childSection">
                 <label asp-for="Person.ChildAge" class="control-label"></label>
                 <input asp-for="Person.ChildAge" class="form-control" />
                 <span asp-validation-for="Person.ChildAge" class="text-danger"></span>
@@ -207,9 +207,27 @@
                             $(".houseHoldSection input").prop("disabled", true);
                             $(".houseHoldSection input").prop("required", false);
                         }
-                        
+
                     });
                 });
+
+                  $(document).ready(function () {
+                    $("#childExistDropdown").change(function () {
+                        var selectedValue = $(this).val();
+                        $(".childSection").hide();
+ 
+                        if (selectedValue.toLowerCase() === 'yes') {
+                            $(".childSection").show();
+                            $(".childSection input").prop("disabled", false);
+                            $(".childSection input").prop("required", true);
+                        } else {
+                            $(".childSection input").prop("disabled", true);
+                            $(".childSection input").prop("required", false);
+                        }
+
+                    });
+                });
+                
             </script>
  
         </form>
