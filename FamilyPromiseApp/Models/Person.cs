@@ -17,7 +17,7 @@ namespace FamilyPromiseApp.Models
 
     public class Person
     {
-        [Display(Name = "Person ID")]
+        [Display(Name = "Client ID")]
         public int ID { get; set; }
         // [Key]
         // public int CaseID { get; set; }
@@ -57,6 +57,8 @@ namespace FamilyPromiseApp.Models
         public string AdultEmail { get; set; }
         [Display(Name = "Are there any additional children in the household?")]
         public AnyChildren? HouseHoldChildrenExist { get; set; }
+        [Display(Name = "Number of children in household")]
+        public int ChildNum { get; set; }
         [Display(Name = "Name")]
         public string ChildName { get; set; }
         [DataType(DataType.Date)]
