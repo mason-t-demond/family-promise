@@ -64,7 +64,10 @@
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DropDownListFor(modelItem => item.Status,
+                                          new SelectList(Enum.GetValues(typeof(Models.Status))),
+                                          "Select Status",
+                                          new { @class = "form-control" })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
