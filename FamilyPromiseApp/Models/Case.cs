@@ -22,13 +22,13 @@ namespace FamilyPromiseApp.Models
         public string IsHoused { get; set; }
         [Display(Name = "Employment/Income")]
         public string IsEmployed { get; set; }
-        [Display(Name = "Method of Transportation")]
+        [Display(Name = "Transportation Method")]
         public string TransportMethod { get; set; }
-        [Display(Name = "Any Substance Issues in the Household? If yes, who and how long?")]
+        [Display(Name = "Substance Issues")]
         public string Substance { get; set; }
-        [Display(Name = "Any Mental or Physical Health Challenges in the Household? if yes, who and how long?")]
+        [Display(Name = "Health Challenges")]
         public string HealthChallenge { get; set; }
-        [Display(Name = "History of Domestic Violence")]
+        [Display(Name = "Domestic Violence")]
         public string DomesticViolenceHistory { get; set;}
 
         // public Person Person { get; set; }

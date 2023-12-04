@@ -1,10 +1,11 @@
 @page
 @model FamilyPromiseApp.Pages.Persons.CreateModel
-
+ 
 @{
     ViewData["Title"] = "Create";
 }
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+ 
 <h4>Client Contact</h4>
 <hr />
 <div class="row">
@@ -52,43 +53,45 @@
             </div>
             <div class="form-group">
                 <label asp-for="Person.HouseHoldMemberExist" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Person.HouseHoldMemberExist,
-                                      new SelectList(Enum.GetValues(typeof(Models.AnyHouseHold))),
-                                      "Select Yes or No",
-                                      new { @class = "form-select" })
+                    @Html.DropDownListFor(model => model.Person.HouseHoldMemberExist,
+                          new SelectList(Enum.GetValues(typeof(Models.AnyHouseHold))),
+                          "Select Yes or No",
+                          new { @class = "form-select", id = "houseHoldMemberExistDropdown" })
                 <span asp-validation-for="Person.HouseHoldMemberExist" class="text-danger"></span>
             </div>
-            <div class="form-group">
+ 
+            <div class="form-group houseHoldSection" id="houseHold1">
                 <label asp-for="Person.HouseHoldNum" class="control-label"></label>
                 <input asp-for="Person.HouseHoldNum" class="form-control" />
                 <span asp-validation-for="Person.HouseHoldNum" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group houseHoldSection" id="houseHold2">
                 <label asp-for="Person.AdultName" class="control-label"></label>
                 <input asp-for="Person.AdultName" class="form-control" />
                 <span asp-validation-for="Person.AdultName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group houseHoldSection" id="houseHold3">
                 <label asp-for="Person.AdultAge" class="control-label"></label>
                 <input asp-for="Person.AdultAge" class="form-control" />
                 <span asp-validation-for="Person.AdultAge" class="text-danger"></span>
             </div>
-            <div class="form-group">
+ 
+            <div class="form-group houseHoldSection" id="houseHold4">
                 <label asp-for="Person.AdultDateOfBirth" class="control-label"></label>
                 <input asp-for="Person.AdultDateOfBirth" class="form-control" />
                 <span asp-validation-for="Person.AdultDateOfBirth" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group houseHoldSection" id="houseHold5">
                 <label asp-for="Person.AdultCellPhone" class="control-label"></label>
                 <input asp-for="Person.AdultCellPhone" class="form-control" />
                 <span asp-validation-for="Person.AdultCellPhone" class="text-danger"></span>
             </div>
-             <div class="form-group">
+             <div class="form-group houseHoldSection" id="houseHold6">
                 <label asp-for="Person.AdultWorkPhone" class="control-label"></label>
                 <input asp-for="Person.AdultWorkPhone" class="form-control" />
                 <span asp-validation-for="Person.AdultWorkPhone" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group houseHoldSection" id="houseHold7">
                 <label asp-for="Person.AdultEmail" class="control-label"></label>
                 <input asp-for="Person.AdultEmail" class="form-control" />
                 <span asp-validation-for="Person.AdultEmail" class="text-danger"></span>
@@ -144,7 +147,7 @@
                 <input asp-for="Case.ReferringAgency" class="form-control" />
                 <span asp-validation-for="Case.ReferringAgency" class="text-danger"></span>
             </div>
-
+ 
             <div class="col-md-12">
                 <h4>Current Living Situation</h4>
                 <hr />
@@ -184,19 +187,39 @@
                 <input asp-for="Case.DomesticViolenceHistory" class="form-control" />
                 <span asp-validation-for="Case.DomesticViolenceHistory" class="text-danger"></span>
             </div>
-
+ 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+           
+            <!--Function for hiding forms if no is selected-->
+            <script>
+                $(document).ready(function () {
+                    $("#houseHoldMemberExistDropdown").change(function () {
+                        var selectedValue = $(this).val();
+                        $(".houseHoldSection").hide();
+ 
+                        if (selectedValue.toLowerCase() === 'yes') {
+                            $(".houseHoldSection").show();
+                            $(".houseHoldSection input").prop("disabled", false);
+                            $(".houseHoldSection input").prop("required", true);
+                        } else {
+                            $(".houseHoldSection input").prop("disabled", true);
+                            $(".houseHoldSection input").prop("required", false);
+                        }
+                    });
+                });
+            </script>
+ 
         </form>
     </div>
 </div>
-
-
+ 
+ 
 @* <div>
     <a asp-page="Index">Back to List</a>
 </div> *@
-
+ 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
