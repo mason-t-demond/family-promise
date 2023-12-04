@@ -3,6 +3,7 @@ using System;
 using FamilyPromiseApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    partial class FamilyPContextModelSnapshot : ModelSnapshot
+    [Migration("20231204062947_PersonRecreate")]
+    partial class PersonRecreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -88,6 +91,9 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CaseID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("CellPhone")
                         .HasColumnType("TEXT");
 
@@ -126,6 +132,8 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CaseID");
 
                     b.ToTable("Person", (string)null);
                 });
@@ -171,6 +179,17 @@ namespace FamilyPromiseApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Resource", (string)null);
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
+                {
+                    b.HasOne("FamilyPromiseApp.Models.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Case");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,17 +12,20 @@ namespace FamilyPromiseApp.Data
         }
         public DbSet<Referral>Referrals{ get; set; }
         public DbSet<Resource>Resources{ get; set; }
-        public DbSet<NewCase>Cases{ get; set; }
+        public DbSet<Person>Persons{ get; set; }
+        public DbSet<Case>Case{ get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Referral>().ToTable(nameof(Referral));
             modelBuilder.Entity<Resource>().ToTable("Resource");
-            modelBuilder.Entity<NewCase>().ToTable("NewCase");
+            modelBuilder.Entity<Person>().ToTable("Person");
+            modelBuilder.Entity<Case>().ToTable("Case");
 
         }
         public DbSet<FamilyPromiseApp.Models.Resource> Resource { get; set; }
-        public DbSet<FamilyPromiseApp.Models.NewCase> NewCase { get; set; } = default!;
+        public DbSet<FamilyPromiseApp.Models.Person> Person { get; set; } = default!;
 
         
     }

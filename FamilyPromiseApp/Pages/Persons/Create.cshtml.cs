@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Pages.Cases
+namespace FamilyPromiseApp.Pages.Persons
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,13 @@ namespace FamilyPromiseApp.Pages.Cases
         }
 
         [BindProperty]
-        public NewCase NewCase { get; set; }
+        public Person Person { get; set; }
+
+        [BindProperty]
+        public Case Case { get; set; }
+
+        // [BindProperty]
+        // public HouseHold NewCase { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -36,7 +42,8 @@ namespace FamilyPromiseApp.Pages.Cases
                 return Page();
             }
 
-            _context.NewCase.Add(NewCase);
+            _context.Person.Add(Person);
+            _context.Case.Add(Case);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
