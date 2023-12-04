@@ -17,99 +17,18 @@ namespace FamilyPromiseApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-<<<<<<< HEAD
             modelBuilder.Entity("FamilyPromiseApp.Models.NewCase", b =>
-=======
-            modelBuilder.Entity("FamilyPromiseApp.Models.Case", b =>
->>>>>>> main
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-<<<<<<< HEAD
-=======
-                    b.Property<string>("CurrentSituation")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DomesticViolenceHistory")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("HealthChallenge")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("IsEmployed")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("IsHoused")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ReferringAgency")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Substance")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("TakenBy")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("TransportMethod")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Case", (string)null);
-                });
-
-            modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("AdultAge")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("AdultCellPhone")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("AdultDateOfBirth")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AdultEmail")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AdultName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AdultWorkPhone")
-                        .HasColumnType("TEXT");
-
->>>>>>> main
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CellPhone")
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-=======
-                    b.Property<int>("ChildAge")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("ChildDateOfBirth")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ChildName")
-                        .HasColumnType("TEXT");
-
->>>>>>> main
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("TEXT");
 
@@ -120,18 +39,6 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("FirstName");
 
-<<<<<<< HEAD
-=======
-                    b.Property<int?>("HouseHoldChildrenExist")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("HouseHoldMemberExist")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("HouseHoldNum")
-                        .HasColumnType("INTEGER");
-
->>>>>>> main
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
@@ -140,11 +47,7 @@ namespace FamilyPromiseApp.Migrations
 
                     b.HasKey("ID");
 
-<<<<<<< HEAD
                     b.ToTable("NewCase", (string)null);
-=======
-                    b.ToTable("Person", (string)null);
->>>>>>> main
                 });
 
             modelBuilder.Entity("FamilyPromiseApp.Models.Referral", b =>

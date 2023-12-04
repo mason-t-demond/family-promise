@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Pages.Persons
+namespace FamilyPromiseApp.Pages.Cases
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace FamilyPromiseApp.Pages.Persons
         }
 
         [BindProperty]
-        public Person Person { get; set; } = default!;
+        public NewCase NewCase { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Person == null)
+            if (id == null || _context.NewCase == null)
             {
                 return NotFound();
             }
 
-            var person =  await _context.Person.FirstOrDefaultAsync(m => m.ID == id);
-            if (person == null)
+            var newcase =  await _context.NewCase.FirstOrDefaultAsync(m => m.ID == id);
+            if (newcase == null)
             {
                 return NotFound();
             }
-            Person = person;
+            NewCase = newcase;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace FamilyPromiseApp.Pages.Persons
                 return Page();
             }
 
-            _context.Attach(Person).State = EntityState.Modified;
+            _context.Attach(NewCase).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace FamilyPromiseApp.Pages.Persons
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NewCaseExists(Person.ID))
+                if (!NewCaseExists(NewCase.ID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace FamilyPromiseApp.Pages.Persons
 
         private bool NewCaseExists(int id)
         {
-          return _context.Person.Any(e => e.ID == id);
+          return _context.NewCase.Any(e => e.ID == id);
         }
     }
 }

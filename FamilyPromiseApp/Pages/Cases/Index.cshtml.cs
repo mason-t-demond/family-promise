@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Pages.Persons
+namespace FamilyPromiseApp.Pages.Cases
 {
     public class IndexModel : PageModel
     {
@@ -19,19 +19,13 @@ namespace FamilyPromiseApp.Pages.Persons
             _context = context;
         }
 
-        public IList<Person> Person { get;set; } = default!;
-        public IList<Case> Case { get;set; } = default!;
+        public IList<NewCase> NewCase { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Person != null)
+            if (_context.NewCase != null)
             {
-                Person = await _context.Person.ToListAsync();
-            }
-
-            if (_context.Case != null)
-            {
-                Case = await _context.Case.ToListAsync();
+                NewCase = await _context.NewCase.ToListAsync();
             }
         }
     }
