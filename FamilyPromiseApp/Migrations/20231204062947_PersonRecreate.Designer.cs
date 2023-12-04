@@ -3,6 +3,7 @@ using System;
 using FamilyPromiseApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,25 +11,21 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    partial class FamilyPContextModelSnapshot : ModelSnapshot
+    [Migration("20231204062947_PersonRecreate")]
+    partial class PersonRecreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-<<<<<<< HEAD
-            modelBuilder.Entity("FamilyPromiseApp.Models.NewCase", b =>
-=======
             modelBuilder.Entity("FamilyPromiseApp.Models.Case", b =>
->>>>>>> main
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-<<<<<<< HEAD
-=======
                     b.Property<string>("CurrentSituation")
                         .HasColumnType("TEXT");
 
@@ -91,15 +88,15 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("AdultWorkPhone")
                         .HasColumnType("TEXT");
 
->>>>>>> main
                     b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CaseID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CellPhone")
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-=======
                     b.Property<int>("ChildAge")
                         .HasColumnType("INTEGER");
 
@@ -109,7 +106,6 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("ChildName")
                         .HasColumnType("TEXT");
 
->>>>>>> main
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("TEXT");
 
@@ -120,8 +116,6 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("FirstName");
 
-<<<<<<< HEAD
-=======
                     b.Property<int?>("HouseHoldChildrenExist")
                         .HasColumnType("INTEGER");
 
@@ -131,7 +125,6 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<int>("HouseHoldNum")
                         .HasColumnType("INTEGER");
 
->>>>>>> main
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
@@ -140,11 +133,9 @@ namespace FamilyPromiseApp.Migrations
 
                     b.HasKey("ID");
 
-<<<<<<< HEAD
-                    b.ToTable("NewCase", (string)null);
-=======
+                    b.HasIndex("CaseID");
+
                     b.ToTable("Person", (string)null);
->>>>>>> main
                 });
 
             modelBuilder.Entity("FamilyPromiseApp.Models.Referral", b =>
@@ -168,8 +159,8 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("ReferralName")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Status")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -188,6 +179,17 @@ namespace FamilyPromiseApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Resource", (string)null);
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
+                {
+                    b.HasOne("FamilyPromiseApp.Models.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Case");
                 });
 #pragma warning restore 612, 618
         }
