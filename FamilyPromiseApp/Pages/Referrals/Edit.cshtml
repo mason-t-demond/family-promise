@@ -31,7 +31,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Referral.Status" class="control-label"></label>
-                <input asp-for="Referral.Status" class="form-control" />
+                @Html.DropDownListFor(model => model.Referral.Status, 
+                                      new SelectList(Enum.GetValues(typeof(Models.Status))),
+                                      "Select Status",
+                                      new { @class = "form-select" }) <!-- Ensure the class is "form-select" -->
                 <span asp-validation-for="Referral.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -62,4 +65,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+   
+    
 }

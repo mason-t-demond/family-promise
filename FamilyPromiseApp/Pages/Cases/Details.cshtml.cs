@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Pages.Persons
+namespace FamilyPromiseApp.Pages.Cases
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace FamilyPromiseApp.Pages.Persons
             _context = context;
         }
 
-      public Person Person { get; set; }
+      public NewCase NewCase { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Person == null)
+            if (id == null || _context.NewCase == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person.FirstOrDefaultAsync(m => m.ID == id);
-            if (person == null)
+            var newcase = await _context.NewCase.FirstOrDefaultAsync(m => m.ID == id);
+            if (newcase == null)
             {
                 return NotFound();
             }
             else 
             {
-                Person = person;
+                NewCase = newcase;
             }
             return Page();
         }

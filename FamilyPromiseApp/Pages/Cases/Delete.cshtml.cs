@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Pages.Persons
+namespace FamilyPromiseApp.Pages.Cases
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace FamilyPromiseApp.Pages.Persons
         }
 
         [BindProperty]
-      public Person Person { get; set; }
+      public NewCase NewCase { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Person == null)
+            if (id == null || _context.NewCase == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person.FirstOrDefaultAsync(m => m.ID == id);
+            var newcase = await _context.NewCase.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (person == null)
+            if (newcase == null)
             {
                 return NotFound();
             }
             else 
             {
-                Person = person;
+                NewCase = newcase;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Person == null)
+            if (id == null || _context.NewCase == null)
             {
                 return NotFound();
             }
-            var person = await _context.Person.FindAsync(id);
+            var newcase = await _context.NewCase.FindAsync(id);
 
-            if (person != null)
+            if (newcase != null)
             {
-                Person = person;
-                _context.Person.Remove(Person);
+                NewCase = newcase;
+                _context.NewCase.Remove(NewCase);
                 await _context.SaveChangesAsync();
             }
 
