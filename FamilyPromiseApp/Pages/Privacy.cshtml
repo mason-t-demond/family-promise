@@ -101,7 +101,7 @@
                 <label asp-for="Person.HouseHoldMemberExist" class="control-label"></label>
                     @Html.DropDownListFor(model => model.Person.HouseHoldMemberExist,
                           new SelectList(Enum.GetValues(typeof(Models.AnyHouseHold))),
-                          "Select Yes or No",
+                          "Select",
                           new { @class = "form-select", id = "houseHoldMemberExistDropdown" })
                 <span asp-validation-for="Person.HouseHoldMemberExist" class="text-danger"></span>
             </div>
@@ -131,7 +131,7 @@
                 <input asp-for="Person.Education" class="form-control" />
                 <span asp-validation-for="Person.Education" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group houseHoldSection">
                 <label asp-for="Person.WorkStudy" class="control-label"></label>
                 @Html.DropDownListFor(model => model.Person.WorkStudy,
                                       new SelectList(Enum.GetValues(typeof(Models.WorkStudy))),
@@ -153,7 +153,7 @@
                                       new { @class = "form-select", id = "childExistDropdown" })
                 <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
             </div>
-            <div class="form-group houseHoldSection" id="houseHold1">
+            <div class="form-group childSection" id="houseHold1">
                 <label asp-for="Person.HouseHoldChildrenExist" class="control-label"></label>
                 <input asp-for="Person.HouseHoldChildrenExist" class="form-control" />
                 <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
