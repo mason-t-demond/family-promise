@@ -126,6 +126,19 @@
                 <input asp-for="Person.AdultDateOfBirth" class="form-control" />
                 <span asp-validation-for="Person.AdultDateOfBirth" class="text-danger"></span>
             </div>
+            <div class="form-group houseHoldSection" id="houseHold1">
+                <label asp-for="Person.Education" class="control-label"></label>
+                <input asp-for="Person.Education" class="form-control" />
+                <span asp-validation-for="Person.Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.WorkStudy" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Person.WorkStudy,
+                                      new SelectList(Enum.GetValues(typeof(Models.WorkStudy))),
+                                      "Select",
+                                      new { @class = "form-select", id = "WorkStudyDropdown" })
+                <span asp-validation-for="Person.WorkStudy" class="text-danger"></span>
+            </div>
             
             <div class="col-md-12">
             <hr />
@@ -136,14 +149,14 @@
                 <label asp-for="Person.HouseHoldChildrenExist" class="control-label"></label>
                 @Html.DropDownListFor(model => model.Person.HouseHoldChildrenExist,
                                       new SelectList(Enum.GetValues(typeof(Models.AnyChildren))),
-                                      "Select Yes or No",
+                                      "Select",
                                       new { @class = "form-select", id = "childExistDropdown" })
                 <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
             </div>
             <div class="form-group houseHoldSection" id="houseHold1">
-                <label asp-for="Person.HouseHoldNum" class="control-label"></label>
-                <input asp-for="Person.HouseHoldNum" class="form-control" />
-                <span asp-validation-for="Person.HouseHoldNum" class="text-danger"></span>
+                <label asp-for="Person.HouseHoldChildrenExist" class="control-label"></label>
+                <input asp-for="Person.HouseHoldChildrenExist" class="form-control" />
+                <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
             </div>
             <div class="form-group childSection">
                 <label asp-for="Person.ChildName" class="control-label"></label>
@@ -160,6 +173,12 @@
                 <input asp-for="Person.ChildAge" class="form-control" />
                 <span asp-validation-for="Person.ChildAge" class="text-danger"></span>
             </div>
+            <div class="form-group childSection">
+                <label asp-for="Person.ChildSchool" class="control-label"></label>
+                <input asp-for="Person.ChildSchool" class="form-control" />
+                <span asp-validation-for="Person.ChildSchool" class="text-danger"></span>
+            </div>
+
             <div class="col-md-12">
             
             <div class="col-md-12">

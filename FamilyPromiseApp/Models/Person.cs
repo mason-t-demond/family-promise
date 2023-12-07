@@ -14,6 +14,12 @@ namespace FamilyPromiseApp.Models
     {
         Yes, No
     }
+
+    public enum WorkStudy
+    {
+        Yes, No
+    }
+
      public enum HouseType
     {
         Apartment, House, MobileHome
@@ -33,8 +39,16 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+
+[       Display(Name = "Highest Form of Education: High School Dropout, High School, GED, Started College, Completed Degree, Post High School Vocational Completion, etc.")]
+        public string Education { get; set; }
+
+
         [Display(Name = "Relationship")]
         public string Relationship { get; set; }
+
+        [Display(Name = "Were you or are you a part of the Work Study Program?")]
+        public string WorkStudy { get; set; }
 
         
         [Display(Name = "SSN")]
