@@ -1,0 +1,58 @@
+@page
+@model FamilyPromiseApp.Pages.Cases.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Case</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.TakenBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.Time)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.ReferringAgency)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.CurrentSituation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.IsHoused)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.IsEmployed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.TransportMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.Substance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.HealthChallenge)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.DomesticViolenceHistory)
+        </dt>
+    </dl>
+</div>
+<div>
+    @* <a asp-page="./EditCase" asp-route-id="@Model.Case?.ID">Edit</a>  | *@
+    <a asp-page="./Index">Back</a>
+</div>

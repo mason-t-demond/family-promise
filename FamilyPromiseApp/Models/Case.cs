@@ -18,7 +18,7 @@ namespace FamilyPromiseApp.Models
         public string ReferringAgency { get; set;}
         [Display(Name = "Current Living Situation")]
         public string CurrentSituation { get; set; }
-        [Display(Name = "Is housed? If yes, Reason and How Long")]
+        [Display(Name = "Housing Situation")]
         public string IsHoused { get; set; }
         [Display(Name = "Employment/Income")]
         public string IsEmployed { get; set; }
