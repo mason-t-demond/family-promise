@@ -46,9 +46,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapControllers();  // Use MapControllers instead of MapControllerRoute
+
+app.MapRazorPages();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .RequireAuthorization();  // Require authorization for the default route
 
 app.Run();
