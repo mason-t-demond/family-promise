@@ -67,7 +67,7 @@ namespace FamilyPromiseApp.Models
         public DateTime ChildDateOfBirth { get; set; }
         [Display(Name = "Age")]
         public int ChildAge { get; set; }
-
+        public Case Case{ get; set; }
 
 
         // public Case Case { get; set; }

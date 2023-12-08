@@ -88,6 +88,9 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("CaseID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("CellPhone")
                         .HasColumnType("TEXT");
 
@@ -129,6 +132,8 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CaseID");
 
                     b.ToTable("Person", (string)null);
                 });
@@ -370,6 +375,15 @@ namespace FamilyPromiseApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
+                {
+                    b.HasOne("FamilyPromiseApp.Models.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseID");
+
+                    b.Navigation("Case");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
