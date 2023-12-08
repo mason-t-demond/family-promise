@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Intake
+namespace FamilyPromiseApp.Pages.Intakes
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace FamilyPromiseApp.Intake
             _context = context;
         }
 
-      public Person Person { get; set; }
+      public IntakeModel IntakeModel { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Persons == null)
+            if (id == null || _context.Intake == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Persons.FirstOrDefaultAsync(m => m.ID == id);
-            if (person == null)
+            var intakemodel = await _context.Intake.FirstOrDefaultAsync(m => m.ID == id);
+            if (intakemodel == null)
             {
                 return NotFound();
             }
             else 
             {
-                Person = person;
+                IntakeModel = intakemodel;
             }
             return Page();
         }

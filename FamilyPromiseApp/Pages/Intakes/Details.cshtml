@@ -1,0 +1,241 @@
+@page
+@model FamilyPromiseApp.Pages.Intakes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>IntakeModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Education)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Education)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Relationships)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Relationships)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.WorkStudy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.WorkStudy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.SSN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.SSN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Reason)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Reason)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Reason2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Reason2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.IDNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.IDNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Race)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Race)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.FirstMidName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.FirstMidName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.MaritalStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.MaritalStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.ChildSchool)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.ChildSchool)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.DateAdmitted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.DateAdmitted)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.CompletionDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.CompletionDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.DOB)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.DOB)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.CellPhoneNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.CellPhoneNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.WorkPhoneNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.WorkPhoneNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.EmailAdd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.EmailAdd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.HomeAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.HomeAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.HouseHoldMemberExists)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.HouseHoldMemberExists)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultAge)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultAge)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultDateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultDateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultCellPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultCellPhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultWorkPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultWorkPhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.AdultEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.AdultEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.HouseHoldChildrenExists)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.HouseHoldChildrenExists)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.RecentHousing)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.RecentHousing)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.HouseType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.HouseType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.ChildNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.ChildNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.ChildName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.ChildName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.ChildDateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.ChildDateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IntakeModel.ChildAge)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IntakeModel.ChildAge)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.IntakeModel?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

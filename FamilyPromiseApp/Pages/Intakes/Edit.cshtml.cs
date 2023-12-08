@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Intake
+namespace FamilyPromiseApp.Pages.Intakes
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace FamilyPromiseApp.Intake
         }
 
         [BindProperty]
-        public Person Person { get; set; } = default!;
+        public IntakeModel IntakeModel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Persons == null)
+            if (id == null || _context.Intake == null)
             {
                 return NotFound();
             }
 
-            var person =  await _context.Persons.FirstOrDefaultAsync(m => m.ID == id);
-            if (person == null)
+            var intakemodel =  await _context.Intake.FirstOrDefaultAsync(m => m.ID == id);
+            if (intakemodel == null)
             {
                 return NotFound();
             }
-            Person = person;
+            IntakeModel = intakemodel;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace FamilyPromiseApp.Intake
                 return Page();
             }
 
-            _context.Attach(Person).State = EntityState.Modified;
+            _context.Attach(IntakeModel).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace FamilyPromiseApp.Intake
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PersonExists(Person.ID))
+                if (!IntakeModelExists(IntakeModel.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace FamilyPromiseApp.Intake
             return RedirectToPage("./Index");
         }
 
-        private bool PersonExists(int id)
+        private bool IntakeModelExists(int id)
         {
-          return _context.Persons.Any(e => e.ID == id);
+          return _context.Intake.Any(e => e.ID == id);
         }
     }
 }

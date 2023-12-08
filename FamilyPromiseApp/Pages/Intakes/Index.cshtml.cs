@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Intake
+namespace FamilyPromiseApp.Pages.Intakes
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace FamilyPromiseApp.Intake
             _context = context;
         }
 
-        public IList<Person> Person { get;set; } = default!;
+        public IList<IntakeModel> IntakeModel { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Persons != null)
+            if (_context.Intake != null)
             {
-                Person = await _context.Persons.ToListAsync();
+                IntakeModel = await _context.Intake.ToListAsync();
             }
         }
     }

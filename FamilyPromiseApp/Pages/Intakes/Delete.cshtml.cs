@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
-namespace FamilyPromiseApp.Intake
+namespace FamilyPromiseApp.Pages.Intakes
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace FamilyPromiseApp.Intake
         }
 
         [BindProperty]
-      public Person Person { get; set; }
+      public IntakeModel IntakeModel { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Persons == null)
+            if (id == null || _context.Intake == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Persons.FirstOrDefaultAsync(m => m.ID == id);
+            var intakemodel = await _context.Intake.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (person == null)
+            if (intakemodel == null)
             {
                 return NotFound();
             }
             else 
             {
-                Person = person;
+                IntakeModel = intakemodel;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Persons == null)
+            if (id == null || _context.Intake == null)
             {
                 return NotFound();
             }
-            var person = await _context.Persons.FindAsync(id);
+            var intakemodel = await _context.Intake.FindAsync(id);
 
-            if (person != null)
+            if (intakemodel != null)
             {
-                Person = person;
-                _context.Persons.Remove(Person);
+                IntakeModel = intakemodel;
+                _context.Intake.Remove(IntakeModel);
                 await _context.SaveChangesAsync();
             }
 
