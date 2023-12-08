@@ -40,7 +40,7 @@ namespace FamilyPromiseApp.Models
         public string LastName { get; set; }
 
 
-[       Display(Name = "Highest Form of Education: High School Dropout, High School, GED, Started College, Completed Degree, Post High School Vocational Completion, etc.")]
+[       Display(Name = "If over 16: Highest Form of Education: High School Dropout, High School, GED, Started College, Completed Degree, Post High School Vocational Completion, etc.")]
         public string Education { get; set; }
 
 
@@ -62,7 +62,6 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "ID Number")]
         public int IDNum { get; set; }
-
         
         [Column("FirstName")]
         [Display(Name = "First Name")]
@@ -70,7 +69,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Marital Status- if so, where are they located?")]
         public string MaritalStatus { get; set; }
 
-        [Display(Name = "Does he/she attend school? If so, where and what grade?")]
+        [Display(Name = "Do any children school? If so, where and what grade?")]
         public string ChildSchool { get; set; }
 
 
