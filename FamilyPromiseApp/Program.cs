@@ -14,6 +14,7 @@ builder.Services.AddDbContext<FamilyPContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyPContext' not found.")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
