@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FamilyPromiseApp.Data
 {
-    public class FamilyPContext : DbContext
+    public class FamilyPContext : IdentityDbContext
     {
 
         public FamilyPContext (DbContextOptions<FamilyPContext> options)
@@ -18,6 +19,8 @@ namespace FamilyPromiseApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Referral>().ToTable(nameof(Referral));
             modelBuilder.Entity<Resource>().ToTable("Resource");
             modelBuilder.Entity<Person>().ToTable("Person");
