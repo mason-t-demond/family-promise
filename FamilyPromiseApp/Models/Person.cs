@@ -55,6 +55,11 @@ namespace FamilyPromiseApp.Models
         public int SSN { get; set; }
 
 
+
+        [Display(Name = "What is your reason for being homeless? Eviction, Kicked Out, Diasaster, Moved, Other, etc.")]
+        public int Reason { get; set; }
+
+
         [Display(Name = "ID Number")]
         public int IDNum { get; set; }
 
