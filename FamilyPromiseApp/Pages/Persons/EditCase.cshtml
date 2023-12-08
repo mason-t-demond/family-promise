@@ -1,0 +1,91 @@
+@page
+@model FamilyPromiseApp.Pages.Cases.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Case</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Case.ID" />
+            <div class="form-group">
+                <label asp-for="Case.ID" class="control-label"></label>
+                <input asp-for="Case.ID" class="form-control" />
+                <span asp-validation-for="Case.ID" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="Case.TakenBy" class="control-label"></label>
+                <input asp-for="Case.TakenBy" class="form-control" />
+                <span asp-validation-for="Case.TakenBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Case.Date" class="control-label"></label>
+                <input asp-for="Case.Date" class="form-control" />
+                <span asp-validation-for="Case.Date" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Case.Time" class="control-label"></label>
+                <input asp-for="Case.Time" class="form-control" />
+                <span asp-validation-for="Case.Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Case.ReferringAgency" class="control-label"></label>
+                <input asp-for="Case.ReferringAgency" class="form-control" />
+                <span asp-validation-for="Case.ReferringAgency" class="text-danger"></span>
+            </div>
+ 
+             <div class="form-group">
+                <label asp-for="Case.CurrentSituation" class="control-label"></label>
+                <input asp-for="Case.CurrentSituation" class="form-control" />
+                <span asp-validation-for="Case.CurrentSituation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Case.IsHoused" class="control-label"></label>
+                <input asp-for="Case.IsHoused" class="form-control" />
+                <span asp-validation-for="Case.IsHoused" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Case.IsEmployed" class="control-label"></label>
+                <input asp-for="Case.IsEmployed" class="form-control" />
+                <span asp-validation-for="Case.IsEmployed" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Case.TransportMethod" class="control-label"></label>
+                <input asp-for="Case.TransportMethod" class="form-control" />
+                <span asp-validation-for="Case.TransportMethod" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Case.Substance" class="control-label"></label>
+                <input asp-for="Case.Substance" class="form-control" />
+                <span asp-validation-for="Case.Substance" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Case.HealthChallenge" class="control-label"></label>
+                <input asp-for="Case.HealthChallenge" class="form-control" />
+                <span asp-validation-for="Case.HealthChallenge" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Case.DomesticViolenceHistory" class="control-label"></label>
+                <input asp-for="Case.DomesticViolenceHistory" class="form-control" />
+                <span asp-validation-for="Case.DomesticViolenceHistory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
