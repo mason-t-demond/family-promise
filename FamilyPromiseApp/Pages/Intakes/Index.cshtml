@@ -1,0 +1,252 @@
+@page
+@model FamilyPromiseApp.Pages.Intakes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Education)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Relationships)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].WorkStudy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].SSN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Reason2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].IDNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Race)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].FirstMidName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].MaritalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].ChildSchool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].DateAdmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].CompletionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].CellPhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].WorkPhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].EmailAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].HomeAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].HouseHoldMemberExists)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultDateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultCellPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultWorkPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].AdultEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].HouseHoldChildrenExists)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].RecentHousing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].HouseType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].ChildNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].ChildName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].ChildDateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntakeModel[0].ChildAge)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.IntakeModel) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Education)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Relationships)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkStudy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Race)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstMidName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChildSchool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdmitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CellPhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkPhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAdd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseHoldMemberExists)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultDateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultCellPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultWorkPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdultEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseHoldChildrenExists)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecentHousing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChildNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChildName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChildDateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChildAge)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
