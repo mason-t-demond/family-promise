@@ -1,15 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using FamilyPromiseApp.Data;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<FamilyPContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyContext' not found.")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<FamilyPContext>();
 builder.Services.AddDbContext<FamilyPContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("FamilyPContext") ?? throw new InvalidOperationException("Connection string 'FamilyPContext' not found.")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyPContext' not found.")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 
 var app = builder.Build();
 
@@ -40,8 +44,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapControllers();  // Use MapControllers instead of MapControllerRoute
+
 app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .RequireAuthorization();  // Require authorization for the default route
 
 app.Run();

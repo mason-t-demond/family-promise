@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace FamilyPromiseApp.Pages.Referrals
 {
+    [Authorize]
     public class IndexModel : PageModel
 {
     private readonly FamilyPContext _context;
