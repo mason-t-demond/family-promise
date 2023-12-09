@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 
+
 namespace FamilyPromiseApp.Pages.Intakes
 {
     public class IndexModel : PageModel
