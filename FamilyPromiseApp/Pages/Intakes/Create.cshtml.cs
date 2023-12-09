@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FamilyPromiseApp.Pages.Intakes
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly FamilyPromiseApp.Data.FamilyPContext _context;
