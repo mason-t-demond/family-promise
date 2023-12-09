@@ -40,6 +40,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.Person[0].Email)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].AdultName)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Person[0].AdultAge)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Person[0].AdultEmail)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Person[0].ChildName)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Person[0].ChildAge)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -69,6 +84,21 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
+            </td>
+             <td>
+                @Html.DisplayFor(modeItem => item.AdultName)
+            </td>
+             <td>
+                @Html.DisplayFor(modeItem => item.AdultAge)
+            </td>
+             <td>
+                @Html.DisplayFor(modeItem => item.AdultEmail)
+            </td>
+             <td>
+                @Html.DisplayFor(modeItem => item.ChildName)
+            </td>
+             <td>
+                @Html.DisplayFor(modeItem => item.ChildAge)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
