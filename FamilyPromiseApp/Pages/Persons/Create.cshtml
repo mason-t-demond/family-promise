@@ -1,5 +1,7 @@
 @page
 @model FamilyPromiseApp.Pages.Persons.CreateModel
+@using FamilyPromiseApp.Models
+
  
  @* Initial Contact Form *@
 
@@ -202,6 +204,20 @@
                 <input asp-for="Case.DomesticViolenceHistory" class="form-control" />
                 <span asp-validation-for="Case.DomesticViolenceHistory" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Person.Referral" class="control-label">Select Referrals:</label>
+                @if (Model.Person != null && Model.Person.AvailableReferrals != null)
+                {
+                    <select asp-for="SelectedReferralIds" class="form-control" asp-items="Model.Person.AvailableReferrals" multiple></select>
+                }
+                else
+                {
+                    <p>Error: AvailableReferrals is not properly initialized.</p>
+                }
+            </div>
+
+
+
  
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

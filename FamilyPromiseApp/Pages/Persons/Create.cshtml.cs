@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 
 namespace FamilyPromiseApp.Pages.Persons
@@ -24,6 +25,16 @@ namespace FamilyPromiseApp.Pages.Persons
 
         public IActionResult OnGet()
         {
+            Person = new Person();
+
+            Person.AvailableReferrals = _context.Referrals
+                .Select(r => new SelectListItem
+                {
+                    Value = r.ReferralName.ToString(),
+                    Text = r.ReferralName
+                })
+                .ToList();
+
             return Page();
         }
 
@@ -32,6 +43,10 @@ namespace FamilyPromiseApp.Pages.Persons
 
         [BindProperty]
         public Case Case { get; set; }
+        public List<int> SelectedReferralIds { get; set; }
+        public List<SelectListItem> AvailableReferrals { get; set; }
+
+
 
         // [BindProperty]
         // public HouseHold NewCase { get; set; }
