@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FamilyPromiseApp.Models
 {
@@ -17,6 +18,7 @@ namespace FamilyPromiseApp.Models
 
     public class Person
     {
+        
         [Display(Name = "Client ID")]
         public int ID { get; set; }
         // [Key]
@@ -69,7 +71,12 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Child Age")]
         public int ChildAge { get; set; }
         public Case Case{ get; set; }
-
+        [Display(Name = "Referrals Available")]
+        public ICollection<Referral> Referral { get; set; }
+        [NotMapped]
+        public List<int> SelectedReferralIds { get; set; }
+        [NotMapped]
+        public List<SelectListItem> AvailableReferrals { get; set; }
 
         // public Case Case { get; set; }
 

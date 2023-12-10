@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FamilyPromiseApp.Data
 {
@@ -21,6 +22,8 @@ namespace FamilyPromiseApp.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Entity<SelectListGroup>().HasNoKey();
 
             modelBuilder.Entity<Referral>().ToTable(nameof(Referral));
             modelBuilder.Entity<Resource>().ToTable("Resource");
