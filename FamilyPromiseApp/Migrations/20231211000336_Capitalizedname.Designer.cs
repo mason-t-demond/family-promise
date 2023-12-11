@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20231209021521_DeletingDBAgain")]
-    partial class DeletingDBAgain
+    [Migration("20231211000336_Capitalizedname")]
+    partial class Capitalizedname
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -310,6 +310,9 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("PersonID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ReferralName")
                         .HasColumnType("TEXT");
 
@@ -317,6 +320,8 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("PersonID");
 
                     b.ToTable("Referral", (string)null);
                 });
@@ -531,6 +536,17 @@ namespace FamilyPromiseApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Mvc.Rendering.SelectListGroup", b =>
+                {
+                    b.Property<bool>("Disabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.ToTable("SelectListGroup");
+                });
+
             modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
                 {
                     b.HasOne("FamilyPromiseApp.Models.Case", "Case")
@@ -538,6 +554,13 @@ namespace FamilyPromiseApp.Migrations
                         .HasForeignKey("CaseID");
 
                     b.Navigation("Case");
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Referral", b =>
+                {
+                    b.HasOne("FamilyPromiseApp.Models.Person", null)
+                        .WithMany("Referral")
+                        .HasForeignKey("PersonID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -589,6 +612,11 @@ namespace FamilyPromiseApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
+                {
+                    b.Navigation("Referral");
                 });
 #pragma warning restore 612, 618
         }

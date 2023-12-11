@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FamilyPromiseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateIdentitySchema : Migration
+    public partial class Capitalizedname : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -74,27 +74,52 @@ namespace FamilyPromiseApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Person",
+                name: "IntakeModel",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
+                    SubstanceIss = table.Column<string>(type: "TEXT", nullable: true),
+                    TakenByNow = table.Column<string>(type: "TEXT", nullable: true),
+                    TimeNow = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DateToday = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Education = table.Column<string>(type: "TEXT", nullable: true),
+                    TransportMethod = table.Column<string>(type: "TEXT", nullable: true),
+                    ReferralAgency = table.Column<string>(type: "TEXT", nullable: true),
+                    IsEmployed = table.Column<string>(type: "TEXT", nullable: true),
+                    IsHoused = table.Column<string>(type: "TEXT", nullable: true),
+                    Relationships = table.Column<string>(type: "TEXT", nullable: true),
+                    WorkStudy = table.Column<string>(type: "TEXT", nullable: true),
+                    AdultNum = table.Column<string>(type: "TEXT", nullable: true),
+                    SSN = table.Column<int>(type: "INTEGER", nullable: false),
+                    Reason = table.Column<int>(type: "INTEGER", nullable: false),
+                    Reason2 = table.Column<int>(type: "INTEGER", nullable: false),
+                    IDNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    Race = table.Column<string>(type: "TEXT", nullable: true),
+                    Gender = table.Column<string>(type: "TEXT", nullable: true),
+                    FirstName1 = table.Column<string>(type: "TEXT", nullable: true),
                     FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    MaritalStatus = table.Column<string>(type: "TEXT", nullable: true),
+                    ChildSchool = table.Column<string>(type: "TEXT", nullable: true),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CellPhone = table.Column<string>(type: "TEXT", nullable: true),
-                    WorkPhone = table.Column<string>(type: "TEXT", nullable: true),
-                    Email = table.Column<string>(type: "TEXT", nullable: true),
-                    HouseHoldMemberExist = table.Column<int>(type: "INTEGER", nullable: true),
-                    HouseHoldNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    DateAdmitted = table.Column<int>(type: "INTEGER", nullable: false),
+                    CompletionDate = table.Column<int>(type: "INTEGER", nullable: false),
+                    DOB = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CellPhoneNum = table.Column<string>(type: "TEXT", nullable: true),
+                    WorkPhoneNum = table.Column<string>(type: "TEXT", nullable: true),
+                    EmailAdd = table.Column<string>(type: "TEXT", nullable: true),
+                    HomeAddress = table.Column<string>(type: "TEXT", nullable: true),
+                    HouseHoldMemberExists = table.Column<int>(type: "INTEGER", nullable: true),
                     AdultName = table.Column<string>(type: "TEXT", nullable: true),
                     AdultAge = table.Column<int>(type: "INTEGER", nullable: false),
                     AdultDateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
                     AdultCellPhone = table.Column<string>(type: "TEXT", nullable: true),
                     AdultWorkPhone = table.Column<string>(type: "TEXT", nullable: true),
                     AdultEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    HouseHoldChildrenExist = table.Column<int>(type: "INTEGER", nullable: true),
+                    HouseHoldChildrenExists = table.Column<int>(type: "INTEGER", nullable: true),
+                    RecentHousing = table.Column<int>(type: "INTEGER", nullable: true),
+                    HouseType = table.Column<int>(type: "INTEGER", nullable: true),
                     ChildNum = table.Column<int>(type: "INTEGER", nullable: false),
                     ChildName = table.Column<string>(type: "TEXT", nullable: true),
                     ChildDateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -102,25 +127,7 @@ namespace FamilyPromiseApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Person", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Referral",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ReferralName = table.Column<string>(type: "TEXT", nullable: true),
-                    Category = table.Column<string>(type: "TEXT", nullable: true),
-                    Status = table.Column<int>(type: "INTEGER", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: true),
-                    ContactInfo = table.Column<string>(type: "TEXT", nullable: true),
-                    Notes = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Referral", x => x.ID);
+                    table.PrimaryKey("PK_IntakeModel", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -134,6 +141,17 @@ namespace FamilyPromiseApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Resource", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SelectListGroup",
+                columns: table => new
+                {
+                    Disabled = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
                 });
 
             migrationBuilder.CreateTable(
@@ -242,6 +260,68 @@ namespace FamilyPromiseApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Person",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    Age = table.Column<int>(type: "INTEGER", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CellPhone = table.Column<string>(type: "TEXT", nullable: true),
+                    WorkPhone = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    HouseHoldMemberExist = table.Column<int>(type: "INTEGER", nullable: true),
+                    HouseHoldNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    AdultName = table.Column<string>(type: "TEXT", nullable: true),
+                    AdultAge = table.Column<int>(type: "INTEGER", nullable: false),
+                    AdultDateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    AdultCellPhone = table.Column<string>(type: "TEXT", nullable: true),
+                    AdultWorkPhone = table.Column<string>(type: "TEXT", nullable: true),
+                    AdultEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    HouseHoldChildrenExist = table.Column<int>(type: "INTEGER", nullable: true),
+                    ChildNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    ChildName = table.Column<string>(type: "TEXT", nullable: true),
+                    ChildDateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ChildAge = table.Column<int>(type: "INTEGER", nullable: false),
+                    CaseID = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Person", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Person_Case_CaseID",
+                        column: x => x.CaseID,
+                        principalTable: "Case",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Referral",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ReferralName = table.Column<string>(type: "TEXT", nullable: true),
+                    Category = table.Column<string>(type: "TEXT", nullable: true),
+                    Status = table.Column<int>(type: "INTEGER", nullable: false),
+                    Address = table.Column<string>(type: "TEXT", nullable: true),
+                    ContactInfo = table.Column<string>(type: "TEXT", nullable: true),
+                    Notes = table.Column<string>(type: "TEXT", nullable: true),
+                    PersonID = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Referral", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Referral_Person_PersonID",
+                        column: x => x.PersonID,
+                        principalTable: "Person",
+                        principalColumn: "ID");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -278,6 +358,16 @@ namespace FamilyPromiseApp.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Person_CaseID",
+                table: "Person",
+                column: "CaseID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Referral_PersonID",
+                table: "Referral",
+                column: "PersonID");
         }
 
         /// <inheritdoc />
@@ -299,10 +389,7 @@ namespace FamilyPromiseApp.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Case");
-
-            migrationBuilder.DropTable(
-                name: "Person");
+                name: "IntakeModel");
 
             migrationBuilder.DropTable(
                 name: "Referral");
@@ -311,10 +398,19 @@ namespace FamilyPromiseApp.Migrations
                 name: "Resource");
 
             migrationBuilder.DropTable(
+                name: "SelectListGroup");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Person");
+
+            migrationBuilder.DropTable(
+                name: "Case");
         }
     }
 }
