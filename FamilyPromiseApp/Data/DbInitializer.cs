@@ -16,7 +16,7 @@ namespace FamilyPromiseApp.Data
 
             var LIHWAP = new Referral
             {
-                ID = 1,
+                //ID = 1,
                 ReferralName = "LIHWAP",
                 Category = "Utility Assistance",
                 Status = Status.Inactive,
@@ -26,7 +26,7 @@ namespace FamilyPromiseApp.Data
             };
             var Central_AR_Development_Council_LiHEAP = new Referral
             {
-                ID = 2,
+                //ID = 2,
                 ReferralName = "Central AR Development Council LiHEAP",
                 Category = "Utility Assistance",
                 Status = Status.Inactive,
@@ -36,7 +36,7 @@ namespace FamilyPromiseApp.Data
             };
             var Entergy = new Referral
             {
-                ID = 3,
+                //ID = 3,
                 ReferralName = "Entergy",
                 Category = "Utility Assistance",
                 Status = Status.Active,
@@ -46,7 +46,7 @@ namespace FamilyPromiseApp.Data
             };
             var St_Francis_House_Utility_Assistance_Program = new Referral
             {
-                ID = 4,
+                //ID = 4,
                 ReferralName = "St. Francis House Utility Assistance Program",
                 Category = "Utility Assistance",
                 Status = Status.Active,
@@ -56,7 +56,7 @@ namespace FamilyPromiseApp.Data
             };
             var St_Vincent_De_Paul_Assistance_Program = new Referral
             {
-                ID = 5,
+                //ID = 5,
                 ReferralName = "St. Vincent De Paul Assistance Program",
                 Category = "Utility Assistance",
                 Status =Status.Active,
@@ -66,7 +66,7 @@ namespace FamilyPromiseApp.Data
             };
             var CAPCA = new Referral
             {
-                ID = 6,
+                //ID = 6,
                 ReferralName = "Community Action Program for Central Arkansas (CAPCA)",
                 Category = "Rental Assistance",
                 Status = Status.Active,
@@ -76,7 +76,7 @@ namespace FamilyPromiseApp.Data
             };
             var Better_Community_Development_Inc = new Referral
             {
-                ID = 7,
+                //ID = 7,
                 ReferralName = "Better Community Development, Inc.",
                 Category = "Housing Assistance",
                 Status = Status.Active,
@@ -86,7 +86,7 @@ namespace FamilyPromiseApp.Data
             };
             var Stew_Pot = new Referral
             {
-                ID = 8,
+                //ID = 8,
                 ReferralName = "Stew Pot",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -96,7 +96,7 @@ namespace FamilyPromiseApp.Data
             };
             var Salvation_Army = new Referral
             {
-                ID = 9,
+                //ID = 9,
                 ReferralName = "Salvation Army",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -106,7 +106,7 @@ namespace FamilyPromiseApp.Data
             };
             var Canvas_Community_Church = new Referral
             {
-                ID = 10,
+                //ID = 10,
                 ReferralName = "Canvas Community Church",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -116,7 +116,7 @@ namespace FamilyPromiseApp.Data
             };
             var Friendly_Chapel = new Referral
             {
-                ID = 11,
+                //ID = 11,
                 ReferralName = "Friendly Chapel",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -126,7 +126,7 @@ namespace FamilyPromiseApp.Data
             };
             var LR_Compassion_Center = new Referral
             {
-                ID = 12,
+                //ID = 12,
                 ReferralName = "Little Rock Compassion Center",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -136,7 +136,7 @@ namespace FamilyPromiseApp.Data
             };
             var From_His_Throne_Ministries = new Referral
             {
-                ID = 13,
+                //ID = 13,
                 ReferralName = "From His Throne Ministries",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -146,7 +146,7 @@ namespace FamilyPromiseApp.Data
             };
             var Jericho_Way_HotMeals = new Referral
             {
-                ID = 14,
+                //ID = 14,
                 ReferralName = "Jericho Way",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -156,7 +156,7 @@ namespace FamilyPromiseApp.Data
             };
             var River_City_Ministry_HotMeals = new Referral
             {
-                ID = 15,
+                //ID = 15,
                 ReferralName = "River City Ministry",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -166,7 +166,7 @@ namespace FamilyPromiseApp.Data
             };
             var St_Mark_Baptist_Church = new Referral
             {
-                ID = 16,
+                //ID = 16,
                 ReferralName = "St. Mark Baptist Church",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -176,7 +176,7 @@ namespace FamilyPromiseApp.Data
             };
             var Quapaw_Quarter= new Referral
             {
-                ID = 17,
+                //ID = 17,
                 ReferralName = "Quapaw Quarter United Methodist Church",
                 Category = "Hot Meals",
                 Status = Status.Active,
@@ -186,7 +186,7 @@ namespace FamilyPromiseApp.Data
             };
             var River_City_Ministry_Hygeine = new Referral
             {
-                ID = 18,
+                //ID = 18,
                 ReferralName = "River City Ministry",
                 Category = "Hygeine Resources: Shower Facilities",
                 Status = Status.Active,
@@ -196,7 +196,7 @@ namespace FamilyPromiseApp.Data
             };
             var Jericho_Way_HygeineShower = new Referral
             {
-                ID = 19,
+                //ID = 19,
                 ReferralName = "Jericho Way",
                 Category = "Hygeine Resources: Shower Facilities",
                 Status = Status.Active,
@@ -206,7 +206,7 @@ namespace FamilyPromiseApp.Data
             };
             var Immerse_AR_HygeineShower = new Referral
             {
-                ID = 20,
+                //ID = 20,
                 ReferralName = "Immerse AR",
                 Category = "Hygeine Resources: Shower Facilities",
                 Status = Status.Active,
@@ -216,7 +216,7 @@ namespace FamilyPromiseApp.Data
             };
             var Lucies_Place_HygeineShower = new Referral
             {
-                ID = 21,
+                //ID = 21,
                 ReferralName = "Lucie's Place",
                 Category = "Hygeine Resources: Shower Facilities",
                 Status =Status.Active,
@@ -226,7 +226,7 @@ namespace FamilyPromiseApp.Data
             };
             var Jericho_Way_HygeineLaundry = new Referral
             {
-                ID = 22,
+                //ID = 22,
                 ReferralName = "Jericho Way",
                 Category = "Hygeine Resources: Laundry Facilities",
                 Status = Status.Active,
@@ -236,7 +236,7 @@ namespace FamilyPromiseApp.Data
             };
             var Immerse_AR_HygeineLaundry = new Referral
             {
-                ID = 23,
+                //ID = 23,
                 ReferralName = "Immerse AR",
                 Category = "Hygeine Resources: Laundry Facilities",
                 Status = Status.Active,
@@ -246,7 +246,7 @@ namespace FamilyPromiseApp.Data
             };
             var Lucies_Place_HygeineLaundry = new Referral
             {
-                ID = 24,
+                //ID = 24,
                 ReferralName = "Lucie's Place",
                 Category = "Hygeine Resources: Laundry Facilities",
                 Status = Status.Active,
@@ -256,7 +256,7 @@ namespace FamilyPromiseApp.Data
             };
             var Arkansas_Legal_Aid = new Referral
             {
-                ID = 25,
+                //ID = 25,
                 ReferralName = "Arkansas Legal Aid",
                 Category = "Legal Services",
                 Status = Status.Active,
@@ -266,7 +266,7 @@ namespace FamilyPromiseApp.Data
             };
             var Center_AR_Legal_Services = new Referral
             {
-                ID = 26,
+                //ID = 26,
                 ReferralName = "Center for Arkansas Legal Services",
                 Category = "Legal Services",
                 Status = Status.Active,
@@ -309,37 +309,37 @@ namespace FamilyPromiseApp.Data
 
             var Social_Supports = new Resource
             {
-                ID = 1,
+                //ID = 1,
                 Category ="Social Supports",
             };
             var Solutions_for_Immediate_Housing_Crisis = new Resource
             {
-                ID = 2,
+                //ID = 2,
                 Category ="Solutions for Immediate Housing Crisis",
             };
             var Mediation_Conflict_Resolution_Services = new Resource
             {
-                ID = 3,
+                //ID = 3,
                 Category ="Mediation/Conflict Resolution Services",
             };
             var Stable_Housing_Plan = new Resource
             {
-                ID = 4,
+                //ID = 4,
                 Category ="Stable Housing Plan",
             };
             var Financial_Education = new Resource
             {
-                ID = 5,
+                //ID = 5,
                 Category ="Financial Education",
             };
             var Employment_Services = new Resource
             {
-                ID = 6,
+                //ID = 6,
                 Category = "Employment Services"
             };
             var Financial_Assistance = new Resource
             {
-                ID = 7,
+                //ID = 7,
                 Category = "Financial Assistance"
             };
 
