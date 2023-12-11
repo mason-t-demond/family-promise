@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20231211020012_Newmigrationsmaybe")]
-    partial class Newmigrationsmaybe
+    [Migration("20231211021059_Okaylastmigrationiswear")]
+    partial class Okaylastmigrationiswear
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
