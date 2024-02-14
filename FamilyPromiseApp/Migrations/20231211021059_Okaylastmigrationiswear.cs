@@ -66,7 +66,7 @@ namespace FamilyPromiseApp.Migrations
                     TransportMethod = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Substance = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HealthChallenge = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DomesticViolenceHistory = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    DomesticViolenceHistory = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 },
                 constraints: table =>
                 {

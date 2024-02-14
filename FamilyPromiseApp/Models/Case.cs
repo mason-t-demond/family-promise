@@ -41,9 +41,6 @@ namespace FamilyPromiseApp.Models
         public string IsHoused { get; set; }
         [Display(Name = "Employment Status")]
         
-        public Employment Employment { get; set; }
-        [Display(Name = "Employment Status")]
-        // options should be enum Employment { FullTime, PartTime, Unemployed, Retired, Disabled, Student, Other }
 
         public string IsEmployed { get; set; }
 
@@ -58,7 +55,7 @@ namespace FamilyPromiseApp.Models
 
         [Display(Name = "Domestic Violence")]
         public string DomesticViolenceHistory { get; set;}
-    
+
         // public Person Person { get; set; }
 
     }
