@@ -35,7 +35,7 @@ namespace FamilyPromiseApp.Pages.Cases
             {
                 return NotFound();
             }
-            Case = Case;
+            // Case = Case;
             return Page();
         }
 

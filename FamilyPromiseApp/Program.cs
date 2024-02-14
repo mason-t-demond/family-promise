@@ -10,12 +10,12 @@ builder.Services.AddRazorPages();
     //options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyContext' not found.")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<FamilyPContext>();
-//builder.Services.AddDbContext<FamilyPContext>(options =>
-    //options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyPContext' not found.")));
+builder.Services.AddDbContext<FamilyPContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyPContext' not found.")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDbContext<FamilyPContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+//builder.Services.AddDbContext<FamilyPContext>(options =>
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 builder.Services.AddDistributedMemoryCache();
 
 var app = builder.Build();
