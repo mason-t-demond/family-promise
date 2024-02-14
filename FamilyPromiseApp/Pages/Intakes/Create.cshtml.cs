@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore; // Add this namespace for Entity Framework Core
 
 namespace FamilyPromiseApp.Pages.Intakes
 {
@@ -21,19 +22,23 @@ namespace FamilyPromiseApp.Pages.Intakes
             _context = context;
         }
 
+        public SelectList ReferralSelectList { get; set; } // Use SelectList instead of List<Referral>
+
         public IActionResult OnGet()
         {
+            // Populate the ReferralSelectList with data from the database
+            var referrals = _context.Referrals.ToList(); // Assuming Referrals is the DbSet in your context
+            ReferralSelectList = new SelectList(referrals, "ID", "ReferralName"); // Assuming ID is the primary key property of Referral
             return Page();
         }
 
         [BindProperty]
         public IntakeModel IntakeModel { get; set; }
         
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }

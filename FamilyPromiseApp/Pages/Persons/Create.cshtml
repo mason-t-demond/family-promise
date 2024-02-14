@@ -29,25 +29,32 @@
                 <span asp-validation-for="Person.FirstMidName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.Age" class="control-label"></label>
-                <input asp-for="Person.Age" class="form-control" />
-                <span asp-validation-for="Person.Age" class="text-danger"></span>
-            </div>
+    <label asp-for="Person.Age" class="control-label"></label>
+    <input asp-for="Person.Age" class="form-control" type="number" value="30" />
+    <span asp-validation-for="Person.Age" class="text-danger"></span>
+</div>
+
+            @{
+    var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
+}
+
+<div class="form-group">
+    <label asp-for="Person.DateOfBirth" class="control-label"></label>
+    <input asp-for="Person.DateOfBirth" class="form-control" type="date" value="@defaultDateOfBirth" />
+    <span asp-validation-for="Person.DateOfBirth" class="text-danger"></span>
+</div>
             <div class="form-group">
-                <label asp-for="Person.DateOfBirth" class="control-label"></label>
-                <input asp-for="Person.DateOfBirth" class="form-control" />
-                <span asp-validation-for="Person.DateOfBirth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.CellPhone" class="control-label"></label>
-                <input asp-for="Person.CellPhone" class="form-control" />
-                <span asp-validation-for="Person.CellPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.WorkPhone" class="control-label"></label>
-                <input asp-for="Person.WorkPhone" class="form-control" />
-                <span asp-validation-for="Person.WorkPhone" class="text-danger"></span>
-            </div>
+    <label asp-for="Person.CellPhone" class="control-label"></label>
+    <input asp-for="Person.CellPhone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="###-###-####" required />
+    <span asp-validation-for="Person.CellPhone" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Person.WorkPhone" class="control-label"></label>
+    <input asp-for="Person.WorkPhone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="###-###-####" required />
+    <span asp-validation-for="Person.WorkPhone" class="text-danger"></span>
+</div>
+
             <div class="form-group">
                 <label asp-for="Person.Email" class="control-label"></label>
                 <input asp-for="Person.Email" class="form-control" />
@@ -78,13 +85,13 @@
             </div>
             <div class="form-group houseHoldSection">
                 <label asp-for="Person.AdultAge" class="control-label"></label>
-                <input asp-for="Person.AdultAge" class="form-control" />
+                <input asp-for="Person.AdultAge" class="form-control" value="30" />
                 <span asp-validation-for="Person.AdultAge" class="text-danger"></span>
             </div>
  
             <div class="form-group houseHoldSection">
                 <label asp-for="Person.AdultDateOfBirth" class="control-label"></label>
-                <input asp-for="Person.AdultDateOfBirth" class="form-control" />
+                <input asp-for="Person.AdultDateOfBirth" class="form-control" value="@defaultDateOfBirth"/>
                 <span asp-validation-for="Person.AdultDateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group houseHoldSection">
@@ -126,14 +133,19 @@
                 <input asp-for="Person.ChildName" class="form-control" />
                 <span asp-validation-for="Person.ChildName" class="text-danger"></span>
             </div>
-             <div class="form-group childSection">
-                <label asp-for="Person.ChildDateOfBirth" class="control-label"></label>
-                <input asp-for="Person.ChildDateOfBirth" class="form-control" />
-                <span asp-validation-for="Person.ChildDateOfBirth" class="text-danger"></span>
-            </div>
+             @{
+    var defaultChildDateOfBirth = DateTime.Today.AddYears(-10).ToString("yyyy-MM-dd");
+}
+
+<div class="form-group childSection">
+    <label asp-for="Person.ChildDateOfBirth" class="control-label"></label>
+    <input asp-for="Person.ChildDateOfBirth" class="form-control" type="date" value="@defaultChildDateOfBirth" />
+    <span asp-validation-for="Person.ChildDateOfBirth" class="text-danger"></span>
+</div>
+
             <div class="form-group childSection">
                 <label asp-for="Person.ChildAge" class="control-label"></label>
-                <input asp-for="Person.ChildAge" class="form-control" />
+                <input asp-for="Person.ChildAge" class="form-control" value="10"/>
                 <span asp-validation-for="Person.ChildAge" class="text-danger"></span>
             </div>
 
@@ -174,14 +186,21 @@
                 <input asp-for="Case.CurrentSituation" class="form-control" />
                 <span asp-validation-for="Case.CurrentSituation" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Case.IsHoused" class="control-label"></label>
                 <input asp-for="Case.IsHoused" class="form-control" />
                 <span asp-validation-for="Case.IsHoused" class="text-danger"></span>
             </div>
              <div class="form-group">
-                <label asp-for="Case.IsEmployed" class="control-label"></label>
-                <input asp-for="Case.IsEmployed" class="form-control" />
+                <label asp-for="Case.IsEmployed" class="control-label">EMPLOYTED</label>
+                <select asp-for="Case.IsEmployed" class="form-control">
+        <option value="">Select Employment Status</option>
+        @foreach (Employment value in Enum.GetValues(typeof(Employment)))
+        {
+            <option value="@value">@Enum.GetName(typeof(Employment), value)</option>
+        }
+    </select>
                 <span asp-validation-for="Case.IsEmployed" class="text-danger"></span>
             </div>
              <div class="form-group">

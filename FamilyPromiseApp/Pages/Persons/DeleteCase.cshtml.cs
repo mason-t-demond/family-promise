@@ -37,7 +37,7 @@ namespace FamilyPromiseApp.Pages.Cases
             }
             else 
             {
-                Case = Case;
+                // Case = Case;
             }
             return Page();
         }
@@ -52,7 +52,7 @@ namespace FamilyPromiseApp.Pages.Cases
 
             if (Case != null)
             {
-                Case = Case;
+                // Case = Case;
                 _context.Case.Remove(Case);
                 await _context.SaveChangesAsync();
             }
