@@ -9,7 +9,7 @@ namespace FamilyPromiseApp.Data
         public static void Initialize(FamilyPContext context)
         {
             // Look for any students.
-            if (context.Referrals.Any())
+            // if (context.Referrals.Any())
             {
                 return;   // DB has been seeded
             }
