@@ -9,6 +9,8 @@
 
 @{
     var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
+    var dateOfSubmission = DateTime.Today.ToString("yyyy-MM-dd");
+    var timeOfSubmission = DateTime.Now.ToString("HH:mm");
 }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -224,12 +226,12 @@
             <hr />
             <div class="form-group">
                 <label asp-for="IntakeModel.DateToday" class="control-label"></label>
-                <input asp-for="IntakeModel.DateToday" class="form-control" />
+                <input asp-for="IntakeModel.DateToday" class="form-control" value="@dateOfSubmission" readonly/>
                 <span asp-validation-for="IntakeModel.DateToday" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.TimeNow" class="control-label"></label>
-                <input asp-for="IntakeModel.TimeNow" class="form-control" />
+                <input asp-for="IntakeModel.TimeNow" class="form-control" value="@timeOfSubmission" readonly/>
                 <span asp-validation-for="IntakeModel.TimeNow" class="text-danger"></span>
             </div>
             <div class="form-group">
