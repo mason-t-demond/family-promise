@@ -6,8 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-//builder.Services.AddDbContext<FamilyPContext>(options =>
-    //options.UseSqlite(builder.Configuration.GetConnectionString("FamilyContext") ?? throw new InvalidOperationException("Connection string 'FamilyContext' not found.")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<FamilyPContext>();
 builder.Services.AddDbContext<FamilyPContext>(options =>
