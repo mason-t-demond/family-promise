@@ -193,7 +193,7 @@
                 <span asp-validation-for="Case.IsHoused" class="text-danger"></span>
             </div>
              <div class="form-group">
-                <label asp-for="Case.IsEmployed" class="control-label"></label>
+                <label asp-for="Case.IsEmployed" class="control-label">Employment Status</label>
                 <select asp-for="Case.IsEmployed" class="form-control">
         <option value="">Select Employment Status</option>
         @foreach (Employment value in Enum.GetValues(typeof(Employment)))
@@ -202,6 +202,11 @@
         }
     </select>
                 <span asp-validation-for="Case.IsEmployed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Case.income" class="control-label">Income</label>
+                <input asp-for="Case.income" class="form-control" />
+                <span asp-validation-for="Case.income" class="text-danger"></span>
             </div>
              <div class="form-group">
                 <label asp-for="Case.TransportMethod" class="control-label"></label>
