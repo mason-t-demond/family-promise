@@ -41,7 +41,7 @@ namespace FamilyPromiseApp.Models
         public string IsHoused { get; set; }
         [Display(Name = "Employment Status")]
         
-
+        public string income { get; set; }
         public string IsEmployed { get; set; }
 
         [Display(Name = "Transportation Method")]
