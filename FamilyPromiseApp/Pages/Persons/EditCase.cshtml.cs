@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
+using FamilyPromiseApp.Pages.Persons;
 
 namespace FamilyPromiseApp.Pages.Cases
 {
@@ -20,6 +21,7 @@ namespace FamilyPromiseApp.Pages.Cases
             _context = context;
         }
 
+        public Case selectedCase { get; set; }
         [BindProperty]
         public Case Case { get; set; } = default!;
 
@@ -35,6 +37,7 @@ namespace FamilyPromiseApp.Pages.Cases
             {
                 return NotFound();
             }
+            selectedCase = Case;
             // Case = Case;
             return Page();
         }

@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -13,15 +13,18 @@
     <div class="col-md-12">
         <div class="row no-gutters border mb-6">
             <div class="col p-6 mb-6 ">
-                <p class="card-text">
-    Family Promise of Pulaski County is a Non-Profit Organization helping people experiencing homelessness and lacking access to basic needs.
-    Initial Contact Form
-    Intake Process Form
-    Clients
-    Referrals
-    Resources
-    Issues logging in? Contact us at <a href="mailto:souvorinkg@hendrix.edu">Disco Tray Studios</a>
-</p>
+                    <ul>
+                        <li><a asp-area="" asp-page="/Persons/Create">Initial Contact Form</a> - For people not in the system</li>
+                        <li><a
+                         asp-area="" asp-page="/Intakes/Create">Intake Process Form</a> - For anyone coming to the center</li>
+                        <li>                            <a asp-page="/Persons/Index">Clients</a>
+ - Info about users of PFP</li>
+                        <li>                            <a asp-page="/Referrals/Index">Referrals</a>
+ - Info on partner organizations</li>
+                        <li><a asp-page="/Resources/Index">Resources</a> - This page is currently empty</li>
+                        <li>Issues logging in? Contact us at <a href="mailto:souvorinkg@hendrix.edu">Disco Tray Studios</a>
+        </ul>
+
 
             </div>
         </div>
