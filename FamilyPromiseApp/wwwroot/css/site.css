@@ -28,3 +28,11 @@ body {
   font-display: block;
  font-size:large;
 }
+.Form-Section{
+  padding-top: 10px;
+  padding-bottom:30px;
+}
+.form-group{
+  padding-top: 10px;
+  padding-bottom:10px;
+}
