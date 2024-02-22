@@ -165,3 +165,6 @@ _upgradeReport_Files/
 .vscode/
 .vs2017/
 .vs2019/
+*.db
+*.db-shm
+*.db-wal
