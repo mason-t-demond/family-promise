@@ -54,9 +54,17 @@
             @Html.DisplayFor(model => model.Person.HouseHoldNum)
         </dd>
         @if (Model.Person.HouseHoldMemberExist.HasValue) {
+            // get list of household members
+            // getHouseholdMembers(Model.Person);
+            // 
             for (int i = 0; i < Model.Person.HouseHoldNum; i++) {
-                <text>@Html.DisplayNameFor(model => model.Person.AdultName) @Html.DisplayFor(model => model.Person.AdultName)</text>
-            }
+                <dd>
+                    @Html.DisplayNameFor(model => model.Person.AdultName)
+                </dd>
+                <dt>
+                    @Html.DisplayFor(model => model.Person.AdultName)
+                </dt>
+                            }
         }
     </dl>
 </div>
