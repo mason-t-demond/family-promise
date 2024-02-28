@@ -103,14 +103,17 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<DateTime>("ChildDateOfBirth")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ChildGrade")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ChildName")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ChildNum")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ChildSchool")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ChildSchool")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CompletionDate")
                         .HasColumnType("INTEGER");
@@ -164,8 +167,8 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("MaritalStatus")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MaritalStatus")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Race")
                         .HasColumnType("TEXT");
@@ -187,6 +190,9 @@ namespace FamilyPromiseApp.Migrations
 
                     b.Property<int>("SSN")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("SpouseLocation")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SubstanceIss")
                         .HasColumnType("TEXT");
