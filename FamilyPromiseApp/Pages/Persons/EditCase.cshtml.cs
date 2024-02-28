@@ -21,7 +21,6 @@ namespace FamilyPromiseApp.Pages.Cases
             _context = context;
         }
 
-        public Case selectedCase { get; set; }
         [BindProperty]
         public Case Case { get; set; } = default!;
 
@@ -32,13 +31,12 @@ namespace FamilyPromiseApp.Pages.Cases
                 return NotFound();
             }
 
-            var Case =  await _context.Case.FirstOrDefaultAsync(m => m.ID == id);
-            if (Case == null)
+            var newCase =  await _context.Case.FirstOrDefaultAsync(m => m.ID == id);
+            if (newCase == null)
             {
                 return NotFound();
             }
-            selectedCase = Case;
-            // Case = Case;
+            Case = newCase;
             return Page();
         }
 
@@ -52,7 +50,7 @@ namespace FamilyPromiseApp.Pages.Cases
             }
 
             _context.Attach(Case).State = EntityState.Modified;
-
+            
             try
             {
                 await _context.SaveChangesAsync();
