@@ -379,7 +379,7 @@
                 }
 
                 $('#numChildrenInSchool').on('input', function () {
-                    var enteredNum = parseInt($(this).val(), 10) || 1;
+                    var enteredNum = $(this).val();
                     console.log("Entered Number: " + enteredNum);
                     generateChildren(enteredNum);
                 });
