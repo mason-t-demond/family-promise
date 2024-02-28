@@ -94,7 +94,6 @@
                 <label asp-for="IntakeModel.IDNum" class="control-label"></label>
                 <input asp-for="IntakeModel.IDNum" class="form-control" />
                 <span asp-validation-for="IntakeModel.IDNum" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.CellPhoneNum" class="control-label"></label>
                 <input asp-for="IntakeModel.CellPhoneNum" class="form-control" />
@@ -343,18 +342,20 @@
                 $(document).ready(function(){
                     $("#MaritalStatusDropdown").change(function() {
                         console.log("MARITAL STATUS CHANGED")
-                        document.getElementById('SpouseLocation').innerHTML = '';
-                        if (document.getElementById('MaritalStatusDropdown').val() == Married) {
+                        document.getElementById("SpouseLocation").innerHTML = '';
+                        var maritalStatus = $("#MaritalStatusDropdown").val()
+                        if (maritalStatus == "Married") {
                             console.log("VALUES MATCH")
-                            document.getElementById('SpouseLocation').innerHTML = `
+                            var sectionHTML = `
                             <div class="form-group">
-                                <label asp-for="IntakeModel.SpouseLocation" class="control-label" ></label>
+                                <label asp-for="IntakeModel.SpouseLocation" class="control-label">Where is your spouse located?</label>
                                 <input asp-for="IntakeModel.SpouseLocation" class="form-control" />
                                 <span asp-validation-for="IntakeModel.SpouseLocation" class="text-danger"></span>
                             </div>
                             `
+                            document.getElementById('SpouseLocation').insertAdjacentHTML('beforeend', sectionHTML); 
                         }})
-                })
+                })  
             </script>
             
             </div>

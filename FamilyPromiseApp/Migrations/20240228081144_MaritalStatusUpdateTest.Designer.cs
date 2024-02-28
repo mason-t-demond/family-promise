@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20240220160608_incomeTest2")]
-    partial class incomeTest2
+    [Migration("20240228081144_MaritalStatusUpdateTest")]
+    partial class MaritalStatusUpdateTest
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -167,8 +167,8 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("MaritalStatus")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MaritalStatus")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Race")
                         .HasColumnType("TEXT");
@@ -190,6 +190,9 @@ namespace FamilyPromiseApp.Migrations
 
                     b.Property<int>("SSN")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("SpouseLocation")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SubstanceIss")
                         .HasColumnType("TEXT");
