@@ -7,11 +7,7 @@ using FamilyPromiseApp.Data;
 namespace FamilyPromiseApp.Models
 {
     
-    public enum AdultNum
-    {
-        Yes, No
-    }
-    public enum WorkStudy
+    public enum YorN
     {
         Yes, No
     }
@@ -23,6 +19,12 @@ namespace FamilyPromiseApp.Models
     {
         Renting, Purchased, Outside, Shelter, Car, Hotel
     }
+
+    public enum MaritalStatus
+    {
+        Married, Single
+    }
+
     public class IntakeModel
     {
         [Display(Name = "Client ID")]
@@ -94,11 +96,17 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "First Name")]
 
         public string FirstMidName { get; set; }
-        [Display(Name = "Marital Status- if so, where are they located?")]
-        public string MaritalStatus { get; set; }
+        [Display(Name = "Marital Status")]
+        public MaritalStatus MaritalStatus { get; set; }
 
-        [Display(Name = "Do any children school? If so, where and what grade?")]
-        public string ChildSchool { get; set; }
+        [Display(Name = "Where is your spouse located?")]
+        public string SpouseLocation { get; set; }
+
+        [Display(Name = "How many children do you have in school?")]
+        public int ChildSchool { get; set; }
+
+        [Display(Name = "Grade of Child")]
+        public int ChildGrade { get; set; }
 
         [Display(Name = "Age")]
         public int Age { get; set; }
