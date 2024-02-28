@@ -219,10 +219,29 @@
                 <input asp-for="Case.income" class="form-control" />
                 <span asp-validation-for="Case.income" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                <label asp-for="Case.TransportMethod" class="control-label"></label>
-                <input asp-for="Case.TransportMethod" class="form-control" />
+            <!--Make Transport Method a dropdown-->
+            <div class="form-group">
+                <label asp-for="Case.TransportMethod" class="control-label">Transportation Method</label>
+                <select asp-for="Case.TransportMethod" class="form-control">
+        <option value="">Select Transportation Method</option>
+        @foreach (TransportationMethod value in Enum.GetValues(typeof(TransportationMethod)))
+        {
+            <option value="@value">@Enum.GetName(typeof(TransportationMethod), value)</option>
+        }
+    </select>
                 <span asp-validation-for="Case.TransportMethod" class="text-danger"></span>
+            </div>
+            <!--Make Substance a dropdown-->
+            <div class="form-group">
+                <label asp-for="Case.Substance" class="control-label">Substance Abuse</label>
+                <select asp-for="Case.Substance" class="form-control">
+        <option value="">Select Substance Abuse</option>
+        @foreach (Substance value in Enum.GetValues(typeof(Substance)))
+        {
+            <option value="@value">@Enum.GetName(typeof(Substance), value)</option>
+        }
+    </select>
+                <span asp-validation-for="Case.Substance" class="text-danger"></span>
             </div>
              <div class="form-group">
                 <label asp-for="Case.Substance" class="control-label"></label>
