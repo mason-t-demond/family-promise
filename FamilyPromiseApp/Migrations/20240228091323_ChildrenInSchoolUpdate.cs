@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FamilyPromiseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class MaritalStatusUpdateTest : Migration
+    public partial class ChildrenInSchoolUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -103,7 +103,8 @@ namespace FamilyPromiseApp.Migrations
                     FirstName = table.Column<string>(type: "TEXT", nullable: true),
                     MaritalStatus = table.Column<int>(type: "INTEGER", nullable: false),
                     SpouseLocation = table.Column<string>(type: "TEXT", nullable: true),
-                    ChildSchool = table.Column<string>(type: "TEXT", nullable: true),
+                    ChildSchool = table.Column<int>(type: "INTEGER", nullable: false),
+                    ChildGrade = table.Column<int>(type: "INTEGER", nullable: false),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
                     DateAdmitted = table.Column<int>(type: "INTEGER", nullable: false),
                     CompletionDate = table.Column<int>(type: "INTEGER", nullable: false),

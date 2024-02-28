@@ -103,14 +103,17 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<DateTime>("ChildDateOfBirth")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ChildGrade")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ChildName")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ChildNum")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ChildSchool")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ChildSchool")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CompletionDate")
                         .HasColumnType("INTEGER");
