@@ -1,15 +1,14 @@
 @page
-@model FamilyPromiseApp.Pages.Cases.DetailsModel
+@model FamilyPromiseApp.Pages.Cases.DetailsModel;
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "DetailsCase";
 }
-
-<h1>Details</h1>
-
 <div>
     <h4>Case</h4>
-    <hr />
+    <h4>@{var Num = Model.Case.ID;} @Num</h4>
+    <h4>@Html.DisplayFor(model => model.Case.ID)</h4>
+    < hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Case.ID)
@@ -49,6 +48,25 @@
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Case.DomesticViolenceHistory)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.income)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.income)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.TransportMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.TransportMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Case.CurrentSituation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Case.CurrentSituation)
         </dt>
     </dl>
 </div>
