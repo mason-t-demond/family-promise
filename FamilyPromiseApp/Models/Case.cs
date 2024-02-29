@@ -39,6 +39,8 @@ public enum Substance
     Opiates,
     [Display(Name = "Marijuana")]
     Marijuana,
+    [Display(Name = "Heroin")]
+    Heroin,
     [Display(Name = "Cocaine")]
     Cocaine,
     [Display(Name = "Methamphetamine")]
@@ -47,6 +49,10 @@ public enum Substance
     PrescriptionDrugs,
     [Display(Name = "Hallucinogens")]
     Hallucinogens,
+    [Display(Name = "Steroids")]
+    Steroids,
+    [Display(Name = "Club Drugs")]
+    ClubDrugs,
     [Display(Name = "Inhalants")]
     Inhalants,
     [Display(Name = "Other")]
