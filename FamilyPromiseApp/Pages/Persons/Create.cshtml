@@ -255,16 +255,24 @@
                 <span asp-validation-for="Case.DomesticViolenceHistory" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.Referral" class="control-label">Select Referrals:</label>
-                @if (Model.Person != null && Model.Person.AvailableReferrals != null)
-                {
-                    <select asp-for="SelectedReferralIds" class="form-control" asp-items="Model.Person.AvailableReferrals" multiple></select>
-                }
-                else
-                {
-                    <p>Error: AvailableReferrals is not properly initialized.</p>
-                }
+    <label class="control-label">Select Referrals:</label>
+    @if (Model.Person != null && Model.Person.AvailableReferrals != null)
+    {
+        foreach (var referral in Model.Person.AvailableReferrals)
+        {
+            <div class="form-check">
+                <input type="checkbox" name="SelectedReferralIds" value="@referral.Value" id="@($"Referral_{referral.Value}")" class="form-check-input" />
+                <label class="form-check-label" for="@($"Referral_{referral.Value}")">@referral.Text</label>
             </div>
+        }
+    }
+    else
+    {
+        <p>Error: AvailableReferrals is not properly initialized.</p>
+    }
+</div>
+
+
 
             
 
