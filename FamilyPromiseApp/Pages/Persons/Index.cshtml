@@ -20,22 +20,22 @@
                 @Html.DisplayNameFor(model => model.Person[0].ID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].LastName)
+                @Html.DisplayNameFor(model => model.Person[0].LastName).Replace("Last Name", "Last")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].FirstMidName)
+                @Html.DisplayNameFor(model => model.Person[0].FirstMidName).Replace("First Name", "First")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].Age)
+                @Html.DisplayNameFor(model => model.Person[0].Age).Replace("Client Age", "Age")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].DateOfBirth)
+                @Html.DisplayNameFor(model => model.Person[0].DateOfBirth).Replace("Date Of Birth", "DOB")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].CellPhone)
+                @Html.DisplayNameFor(model => model.Person[0].CellPhone).Replace("Cell Number", "Phone")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].Email)
+                @Html.DisplayNameFor(model => model.Person[0].Email).Replace("Email Address", "Email")
             </th>
         </tr>
     </thead>
@@ -95,29 +95,35 @@
                 @Html.DisplayNameFor(model => model.Case[0].ID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Case[0].TakenBy)
+                @Html.DisplayNameFor(model => model.Case[0].TakenBy).Replace("Referral Taken By", "Worker")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].LastName).Replace("Last Name", "Last")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].FirstMidName).Replace("First Name", "First")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Case[0].Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Case[0].ReferringAgency)
+                @Html.DisplayNameFor(model => model.Case[0].ReferringAgency).Replace("Agency/Source", "Agency")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Case[0].IsHoused)
+                @Html.DisplayNameFor(model => model.Case[0].IsHoused).Replace("Housing Siuation", "Housing")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Case[0].IsEmployed)
+                @Html.DisplayNameFor(model => model.Case[0].IsEmployed).Replace("IsEmployed", "$")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Case[0].Substance)
+                @Html.DisplayNameFor(model => model.Case[0].Substance).Replace("Substance Issues", "Subs")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Case[0].HealthChallenge)
+                @Html.DisplayNameFor(model => model.Case[0].HealthChallenge).Replace("Health Challenges", "Health")
             </th>
-             <th>
-                @Html.DisplayNameFor(model => model.Case[0].DomesticViolenceHistory)
-            </th>
+            <th>
+    @Html.DisplayNameFor(model => model.Case[0].DomesticViolenceHistory).Replace("Domestic Violence", "DV")
+</th>
         </tr>
     </thead>
     <tbody>
@@ -125,6 +131,12 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ID)
+            </td>
+             <td>
+                @Html.DisplayFor(model => model.Person[0].LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Person[0].FirstMidName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TakenBy)
