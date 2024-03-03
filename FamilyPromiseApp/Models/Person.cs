@@ -58,7 +58,7 @@ namespace FamilyPromiseApp.Models
         public string AdultWorkPhone { get; set; }
         [Display(Name = "Adult Email")]
         public string AdultEmail { get; set; }
-        [Display(Name = "Are there any additional children in the household?")]
+        [Display(Name = "Are there any children in the household?")]
         public AnyChildren? HouseHoldChildrenExist { get; set; }
         [Display(Name = "Number of children in the household")]
         public int ChildNum { get; set; }
