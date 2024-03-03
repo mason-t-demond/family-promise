@@ -94,14 +94,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Case[0].ID)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Case[0].TakenBy).Replace("Referral Taken By", "Worker")
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Person[0].LastName).Replace("Last Name", "Last")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Person[0].FirstMidName).Replace("First Name", "First")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Case[0].TakenBy).Replace("Referral Taken By", "Worker")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Case[0].Date)
