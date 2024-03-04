@@ -17,6 +17,44 @@ namespace FamilyPromiseApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
+            modelBuilder.Entity("FamilyPromiseApp.Models.Adult", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CaseID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CellPhone")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstMidName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PersonID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("WorkPhone")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Adult", (string)null);
+                });
+
             modelBuilder.Entity("FamilyPromiseApp.Models.Case", b =>
                 {
                     b.Property<int>("ID")
@@ -44,8 +82,8 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("ReferringAgency")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Substance")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Substance")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("TakenBy")
                         .HasColumnType("TEXT");
@@ -53,8 +91,8 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("TransportMethod")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TransportMethod")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("income")
                         .HasColumnType("TEXT");
@@ -62,6 +100,35 @@ namespace FamilyPromiseApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Case", (string)null);
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Child", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CaseID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstMidName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PersonID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Child", (string)null);
                 });
 
             modelBuilder.Entity("FamilyPromiseApp.Models.IntakeModel", b =>
