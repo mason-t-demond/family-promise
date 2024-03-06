@@ -66,8 +66,17 @@ namespace FamilyPromiseApp.Pages.Persons
 
             _context.Person.Add(Person);
             _context.Case.Add(Case);
-            Children = PopulateChildren(3);
-            System.Console.WriteLine(Children);
+            for (int i = 0; i <3; i++)
+            {
+                Child kid = new Child
+                {
+                    Age = 10,
+                    DateOfBirth = new DateTime(2010, 1, 1),
+                    FirstMidName = "Bobby M",
+                    LastName = "Broccoli"
+                };
+                _context.Child.Add(kid);
+            }
             await _context.SaveChangesAsync();
 
 
@@ -99,13 +108,23 @@ namespace FamilyPromiseApp.Pages.Persons
             return Children;
         }
 
-        public List<Child> AddChildren(List<Child> children, Child child)
+        public List<Child> AddChildren(List<Child> children, int numChildren)
         {
             if (children == null)
             {
                 children = new List<Child>();
             }
-            children.Add(child);
+            for (int i = 0; i < numChildren; i++)
+            {
+                Child kid = new Child
+                {
+                    Age = 10,
+                    DateOfBirth = new DateTime(2010, 1, 1),
+                    FirstMidName = "Bobby M",
+                    LastName = "Broccoli"
+                };
+                children.Add(kid);
+            }
             return children;
         }
         
