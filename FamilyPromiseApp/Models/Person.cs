@@ -28,8 +28,6 @@ namespace FamilyPromiseApp.Models
         [Column("FirstName")]
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
-        [Display(Name = "Client Age")]
-        public int Age { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
@@ -46,8 +44,6 @@ namespace FamilyPromiseApp.Models
         public int HouseHoldNum { get; set; }
         [Display(Name = "Adult Name(s)")]
         public string AdultName { get; set; }
-        [Display(Name = "Adult Age")]
-        public int AdultAge { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Adult Date of Birth")]
