@@ -16,5 +16,13 @@ namespace FamilyPromiseApp.Models
         public string Address { get; set; }
         public string ContactInfo { get; set; }
         public string Notes { get; set; }
+
+        public ICollection<IntakeModel>? InTake {get;set;}
+
+        public override string ToString()
+      {
+        return ReferralName;
+      }
     }
+
 }
