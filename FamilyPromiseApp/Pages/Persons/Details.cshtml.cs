@@ -22,6 +22,8 @@ namespace FamilyPromiseApp.Pages.Persons
       public Person Person { get; set; }
       public Case Case { get; set; }
 
+      public Child Child { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Person == null)
@@ -31,6 +33,7 @@ namespace FamilyPromiseApp.Pages.Persons
 
             var person = await _context.Person.FirstOrDefaultAsync(m => m.ID == id);
             Case = _context.Case.FirstOrDefault(c => c.ID == id);
+            Child = _context.Child.FirstOrDefault(c => c.ID == id);
             if (person == null)
             {
                 return NotFound();

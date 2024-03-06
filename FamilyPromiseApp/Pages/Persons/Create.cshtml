@@ -7,6 +7,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    var ChildrenList = Model.Children;
 }
 
 
@@ -29,15 +30,10 @@
                 <input asp-for="Person.FirstMidName" class="form-control" />
                 <span asp-validation-for="Person.FirstMidName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-    <label asp-for="Person.Age" class="control-label"></label>
-    <input asp-for="Person.Age" class="form-control" type="number" value="30" />
-    <span asp-validation-for="Person.Age" class="text-danger"></span>
-</div>
 
             @{
-    var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
-}
+                var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
+             }
 
 <div class="form-group">
     <label asp-for="Person.DateOfBirth" class="control-label"></label>
@@ -68,7 +64,7 @@
                 <h4>Additional Adults Information</h4>
                 <hr />
             <div class="form-group">
-                <label asp-for="Person.HouseHoldMemberExist" class="control-label"></label>
+                <label asp-for="Person.HouseHoldMemberExist" for="houseHoldMemberExistDropdown" class="control-label"></label>
                     @Html.DropDownListFor(model => model.Person.HouseHoldMemberExist,
                           new SelectList(Enum.GetValues(typeof(Models.AnyHouseHold))),
                           "Select Yes or No",
@@ -78,18 +74,13 @@
  
             <div class="form-group houseHoldSection" id="houseHoldNum">
                 <label asp-for="Person.HouseHoldNum" class="control-label"></label>
-                <input asp-for="Person.HouseHoldNum" class="form-control" type="number" min="1" oninput="validity.valid||(value='1');" />
+                <input asp-for="Person.HouseHoldNum" class="form-control" type="number" min="1" value="1" oninput="validity.valid||(value='1');" />
                 <span asp-validation-for="Person.HouseHoldNum" class="text-danger"></span>
             </div>
             <div class="form-group houseHoldSection">
                 <label asp-for="Person.AdultName" class="control-label"></label>
                 <input asp-for="Person.AdultName" class="form-control" />
                 <span asp-validation-for="Person.AdultName" class="text-danger"></span>
-            </div>
-            <div class="form-group houseHoldSection">
-                <label asp-for="Person.AdultAge" class="control-label"></label>
-                <input asp-for="Person.AdultAge" class="form-control" value="30" />
-                <span asp-validation-for="Person.AdultAge" class="text-danger"></span>
             </div>
  
             <div class="form-group houseHoldSection">
@@ -121,37 +112,40 @@
             <hr />
             
             <div class="form-group">
-                <label asp-for="Person.HouseHoldChildrenExist" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Person.HouseHoldChildrenExist,
-                                      new SelectList(Enum.GetValues(typeof(Models.AnyChildren))),
-                                      "Select Yes or No",
-                                      new { @class = "form-select", id = "childExistDropdown"})
-                <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
-            </div>
-            <div class="form-group childSection" id="numChild">
-                <label asp-for="Person.ChildNum" class="control-label"></label>
-                <input asp-for="Person.ChildNum" class="form-control" type="number" min="1" oninput="validity.valid||(value='1');" />
+    <label asp-for="Person.HouseHoldChildrenExist" class="control-label" for="childExistDropdown"></label>
+    @Html.DropDownListFor(model => model.Person.HouseHoldChildrenExist,
+                          new SelectList(Enum.GetValues(typeof(Models.AnyChildren))),
+                          "Select Yes or No",
+                          new { @class = "form-select", id = "childExistDropdown"})
+    <span asp-validation-for="Person.HouseHoldChildrenExist" class="text-danger"></span>
+</div>
+        <!--When you select a number of children, print the number to the console-->
+            <div class="form-group childSection">
+                <label asp-for="Person.ChildNum" class="control-label" for="numChild"></label>
+                <input asp-for="Person.ChildNum" id="numChild"class="form-control" type="number" min="1" value="1" oninput="validity.valid||(value='1');" onchange="printSelectedNumber()" />
                 <span asp-validation-for="Person.ChildNum" class="text-danger"></span>
             </div>
             <div class="form-group childSection">
-                <label asp-for="Person.ChildName" class="control-label"></label>
-                <input asp-for="Person.ChildName" class="form-control" />
-                <span asp-validation-for="Person.ChildName" class="text-danger"></span>
+                <label asp-for="Children[0].LastName" class="control-label"></label>
+                <input asp-for="Children[0].LastName" class="form-control" />
+                <span asp-validation-for="Children[0].LastName" class="text-danger"></span>
             </div>
              @{
-    var defaultChildDateOfBirth = DateTime.Today.AddYears(-10).ToString("yyyy-MM-dd");
-}
+                var defaultChildDateOfBirth = DateTime.Today.AddYears(-10).ToString("yyyy-MM-dd");
+              }
 
 <div class="form-group childSection">
-    <label asp-for="Person.ChildDateOfBirth" class="control-label"></label>
-    <input asp-for="Person.ChildDateOfBirth" class="form-control" type="date" value="@defaultChildDateOfBirth" />
-    <span asp-validation-for="Person.ChildDateOfBirth" class="text-danger"></span>
+    <label asp-for="Child.DateOfBirth" class="control-label"></label>
+    <input asp-for="Child.DateOfBirth" class="form-control" type="date" value="@defaultChildDateOfBirth" />
+    <span asp-validation-for="Child.DateOfBirth" class="text-danger"></span>
 </div>
 
             <div class="form-group childSection">
-                <label asp-for="Person.ChildAge" class="control-label"></label>
-                <input asp-for="Person.ChildAge" class="form-control" value="10"/>
+                <label asp-for="Child.Age" class="control-label"></label>
                 <span asp-validation-for="Person.ChildAge" class="text-danger"></span>
+                <label asp-for="Person.ChildDateOfBirth" class="control-label"></label>
+                <input asp-for="Person.ChildDateOfBirth" class="form-control" type="date" value="@defaultChildDateOfBirth" />
+                <span asp-validation-for="Person.ChildDateOfBirth" class="text-danger"></span>
             </div>
 
             <!-- Placeholder div for autogenerated sections-->
@@ -219,14 +213,28 @@
                 <input asp-for="Case.income" class="form-control" />
                 <span asp-validation-for="Case.income" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                <label asp-for="Case.TransportMethod" class="control-label"></label>
-                <input asp-for="Case.TransportMethod" class="form-control" />
+            <!--Make Transport Method a dropdown-->
+            <div class="form-group">
+                <label asp-for="Case.TransportMethod" class="control-label">Transportation Method</label>
+                <select asp-for="Case.TransportMethod" class="form-control">
+        <option value="">Select Transportation Method</option>
+        @foreach (TransportationMethod value in Enum.GetValues(typeof(TransportationMethod)))
+        {
+            <option value="@value">@Enum.GetName(typeof(TransportationMethod), value)</option>
+        }
+    </select>
                 <span asp-validation-for="Case.TransportMethod" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                <label asp-for="Case.Substance" class="control-label"></label>
-                <input asp-for="Case.Substance" class="form-control" />
+            <!--Make Substance a dropdown-->
+            <div class="form-group">
+                <label asp-for="Case.Substance" class="control-label">Substance Abuse</label>
+                <select asp-for="Case.Substance" class="form-control">
+        <option value="">Select Substance Abuse</option>
+        @foreach (Substance value in Enum.GetValues(typeof(Substance)))
+        {
+            <option value="@value">@Enum.GetName(typeof(Substance), value)</option>
+        }
+    </select>
                 <span asp-validation-for="Case.Substance" class="text-danger"></span>
             </div>
              <div class="form-group">
@@ -234,22 +242,37 @@
                 <input asp-for="Case.HealthChallenge" class="form-control" />
                 <span asp-validation-for="Case.HealthChallenge" class="text-danger"></span>
             </div>
+            <!--Make Domestic Violence a dropdown with -->
              <div class="form-group">
                 <label asp-for="Case.DomesticViolenceHistory" class="control-label"></label>
                 <input asp-for="Case.DomesticViolenceHistory" class="form-control" />
                 <span asp-validation-for="Case.DomesticViolenceHistory" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.Referral" class="control-label">Select Referrals:</label>
-                @if (Model.Person != null && Model.Person.AvailableReferrals != null)
-                {
-                    <select asp-for="SelectedReferralIds" class="form-control" asp-items="Model.Person.AvailableReferrals" multiple></select>
-                }
-                else
-                {
-                    <p>Error: AvailableReferrals is not properly initialized.</p>
-                }
-            </div>
+    <h2>Select Referrals:</h2>
+    @if (Model.Person != null && Model.Person.AvailableReferrals != null)
+    {
+        HashSet<String> uniqueReferralNames = new HashSet<String>();
+
+        foreach (var referral in Model.Person.AvailableReferrals)
+        {
+            if (!uniqueReferralNames.Contains(referral.Text))
+            {
+                uniqueReferralNames.Add(referral.Text);
+                <div class="form-check">
+                    <input type="checkbox" name="SelectedReferralIds" value="@referral.Value" id="@($"Referral_{referral.Value}")" class="form-check-input" />
+                    <label class="form-check-label" for="@($"Referral_{referral.Value}")">@referral.Text</label>
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <p>Error: AvailableReferrals is not properly initialized.</p>
+    }
+</div>
+
+
 
             
 
@@ -261,6 +284,23 @@
            
         <!--Function for hiding forms if no is selected, adds new adults when needed-->
         <script>
+            // get a value from a form with id; ChildNum and print it to the console
+            @* function printSelectedNumber() {
+                var selectedNumber = document.querySelector('#numChild input[type="number"]').value;
+                console.log("Selected Number of Children:", selectedNumber);
+            }
+            function createChildren() {
+                var selectedNumber = document.querySelector('#numChild input[type="number"]').value;
+                console.log("Selected Number of Children:", selectedNumber);
+                @Model.AddChildren(ChildrenList, 4);
+            } *@
+
+
+
+            // get the value of number of children from Person.ChildNum
+
+
+
             $(document).ready(function () {
                 $("#childExistDropdown").change(function () {
                     var selectedValue = $(this).val();
@@ -283,16 +323,15 @@
                 var selectedValue = $(this).val();
                 $(".houseHoldSection").hide();
  
-            if (selectedValue.toLowerCase() === 'yes') {
-                $(".houseHoldSection").show();
-                $(".houseHoldSection input").prop("disabled", false);
-                $(".houseHoldSection input").prop("required", true);
-            } else {
-                $(".houseHoldSection input").prop("disabled", true);
-                $(".houseHoldSection input").prop("required", false);
-            }
-        });
-        </div>
+                if (selectedValue.toLowerCase() === 'yes') {
+                    $(".houseHoldSection").show();
+                    $(".houseHoldSection input").prop("disabled", false);
+                    $(".houseHoldSection input").prop("required", true);
+                } else {
+                    $(".houseHoldSection input").prop("disabled", true);
+                    $(".houseHoldSection input").prop("required", false);
+                }
+            });
 
  
             function generateAdults(numAdults) {
@@ -300,18 +339,13 @@
                 console.log("Generating adults...");
                 for (var i = 2; i <= numAdults; i++) {
                     var sectionHtml = `
-                        <h4> Adult ${i} Information </h4>
+                        <b class="form-group houseHoldSection">Adult ${i} Information</b>
                         <div class="form-group houseHoldSection">
                             <label asp-for="Person.AdultName" class="control-label">Adult ${i} Name:</label>
                             <input asp-for="Person.AdultName" class="form-control" />
                             <span asp-validation-for="Person.AdultName" class="text-danger"></span>
                         </div>
                         <div class="form-group houseHoldSection">
-                            <label asp-for="Person.AdultAge" class="control-label">Adult ${i} Age:</label>
-                            <input asp-for="Person.AdultAge" class="form-control" type="number" />
-                            <span asp-validation-for="Person.AdultAge" class="text-danger"></span>
-                        </div>
-                         <div class="form-group houseHoldSection">
                             <label asp-for="Person.AdultDateOfBirth" class="control-label">Adult ${i} Date of Birth:</label>
                             <input asp-for="Person.AdultDateOfBirth" class="form-control" type="date"/>
                             <span asp-validation-for="Person.AdultDateOfBirth" class="text-danger"></span>
@@ -327,7 +361,7 @@
                             <span asp-validation-for="Person.AdultWorkPhone" class="text-danger"></span>
                         </div>
                         <div class="form-group houseHoldSection">
-                            <label asp-for="Person.AdultEmail" class="control-label">Adult ${i} Email Adress:</label>
+                            <label asp-for="Person.AdultEmail" class="control-label">Adult ${i} Email Address:</label>
                             <input asp-for="Person.AdultEmail" class="form-control" />
                             <span asp-validation-for="Person.AdultEmail" class="text-danger"></span>
                         </div>`;
@@ -352,22 +386,17 @@
                 console.log("Generating children...");
                 for (var i = 2; i <= numChild; i++) {
                     var sectionHtml = `
-                        <h4> Child ${i} Information </h4>
-
+                        <br>
+                        <b class="form-group childSection">Child ${i} Information</b>
                         <div class="form-group childSection">
-                            <label asp-for="Person.ChildName" class="control-label">Child ${i} Name:</label>
-                            <input asp-for="Person.ChildName" class="form-control" />
+                            <label asp-for="Person.ChildName" for="ChildName" class="control-label">Child ${i} Name:</label>
+                            <input asp-for="Person.ChildName" id="ChildName" class="form-control" />
                             <span asp-validation-for="Person.ChildName" class="text-danger"></span>
                         </div>
                         <div class="form-group childSection">
                             <label asp-for="Person.ChildDateOfBirth" class="control-label">Child ${i} Date of Birth:</label>
                             <input asp-for="Person.ChildDateOfBirth" class="form-control" type="date"/>
                             <span asp-validation-for="Person.ChildDateOfBirth" class="text-danger"></span>
-                        </div>
-                        <div class="form-group childSection">
-                            <label asp-for="Person.ChildAge" class="control-label">Child ${i} Age:</label>
-                            <input asp-for="Person.ChildAge" class="form-control" type="number" />
-                            <span asp-validation-for="Person.ChildAge" class="text-danger"></span>
                         </div>`;
                     console.log("I " +i);
                     console.log("Number of Children " +numChild);
@@ -381,7 +410,7 @@
                 generateChildren(enteredNum);
             });
             generateChildren(document.querySelector('#numChild input').value);
-        });
+            });
         
         </script>
  

@@ -17,7 +17,8 @@ namespace FamilyPromiseApp.Data
         public DbSet<Person>Persons{ get; set; }
         public DbSet<Case>Case{ get; set; }
         public DbSet<IntakeModel>Intake{ get; set; }
-
+        public DbSet<Child>Child{ get; set; }
+        public DbSet<Adult>Adult{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,7 +31,8 @@ namespace FamilyPromiseApp.Data
             modelBuilder.Entity<Person>().ToTable("Person");
             modelBuilder.Entity<Case>().ToTable("Case");
             modelBuilder.Entity<IntakeModel>().ToTable("IntakeModel");
-
+            modelBuilder.Entity<Child>().ToTable("Child");
+            modelBuilder.Entity<Adult>().ToTable("Adult");
         }
         public DbSet<FamilyPromiseApp.Models.Resource> Resource { get; set; }
         public DbSet<FamilyPromiseApp.Models.Person> Person { get; set; } = default!;

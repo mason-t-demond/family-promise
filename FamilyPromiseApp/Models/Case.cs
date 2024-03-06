@@ -17,6 +17,49 @@ namespace FamilyPromiseApp.Models
     Other
 }
 
+public enum TransportationMethod
+{
+    [Display(Name = "Public Transportation")]
+    PublicTransportation,
+    [Display(Name = "Personal Vehicle")]
+    PersonalVehicle,
+    [Display(Name = "Bike")]
+    Bike,
+    [Display(Name = "Walking")]
+    Walking,
+    [Display(Name = "Other")]
+    Other
+}
+
+public enum Substance
+{
+    [Display(Name = "Alcohol")]
+    Alcohol,
+    [Display(Name = "Opiates")]
+    Opiates,
+    [Display(Name = "Marijuana")]
+    Marijuana,
+    [Display(Name = "Heroin")]
+    Heroin,
+    [Display(Name = "Cocaine")]
+    Cocaine,
+    [Display(Name = "Methamphetamine")]
+    Methamphetamine,
+    [Display(Name = "Prescription Drugs")]
+    PrescriptionDrugs,
+    [Display(Name = "Hallucinogens")]
+    Hallucinogens,
+    [Display(Name = "Steroids")]
+    Steroids,
+    [Display(Name = "Club Drugs")]
+    ClubDrugs,
+    [Display(Name = "Inhalants")]
+    Inhalants,
+    [Display(Name = "Other")]
+    Other,
+    None
+}
+
     public class Case
     {
         public int ID { get; set; }
@@ -45,10 +88,10 @@ namespace FamilyPromiseApp.Models
         public string IsEmployed { get; set; }
 
         [Display(Name = "Transportation Method")]
-        public string TransportMethod { get; set; }
+        public TransportationMethod TransportMethod { get; set; }
 
         [Display(Name = "Substance Issues")]
-        public string Substance { get; set; }
+        public Substance Substance { get; set; }
 
         [Display(Name = "Health Challenges")]
         public string HealthChallenge { get; set; }
