@@ -29,15 +29,10 @@
                 <input asp-for="Person.FirstMidName" class="form-control" />
                 <span asp-validation-for="Person.FirstMidName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-    <label asp-for="Person.Age" class="control-label"></label>
-    <input asp-for="Person.Age" class="form-control" type="number" value="30" />
-    <span asp-validation-for="Person.Age" class="text-danger"></span>
-</div>
 
             @{
-    var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
-}
+                var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
+             }
 
 <div class="form-group">
     <label asp-for="Person.DateOfBirth" class="control-label"></label>
@@ -85,11 +80,6 @@
                 <label asp-for="Person.AdultName" class="control-label"></label>
                 <input asp-for="Person.AdultName" class="form-control" />
                 <span asp-validation-for="Person.AdultName" class="text-danger"></span>
-            </div>
-            <div class="form-group houseHoldSection">
-                <label asp-for="Person.AdultAge" class="control-label"></label>
-                <input asp-for="Person.AdultAge" class="form-control" value="30" />
-                <span asp-validation-for="Person.AdultAge" class="text-danger"></span>
             </div>
  
             <div class="form-group houseHoldSection">
@@ -323,11 +313,6 @@
                             <span asp-validation-for="Person.AdultName" class="text-danger"></span>
                         </div>
                         <div class="form-group houseHoldSection">
-                            <label asp-for="Person.AdultAge" class="control-label">Adult ${i} Age:</label>
-                            <input asp-for="Person.AdultAge" class="form-control" type="number" />
-                            <span asp-validation-for="Person.AdultAge" class="text-danger"></span>
-                        </div>
-                         <div class="form-group houseHoldSection">
                             <label asp-for="Person.AdultDateOfBirth" class="control-label">Adult ${i} Date of Birth:</label>
                             <input asp-for="Person.AdultDateOfBirth" class="form-control" type="date"/>
                             <span asp-validation-for="Person.AdultDateOfBirth" class="text-danger"></span>
