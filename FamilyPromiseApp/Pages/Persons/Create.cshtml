@@ -42,13 +42,13 @@
 </div>
             <div class="form-group">
     <label asp-for="Person.CellPhone" class="control-label"></label>
-    <input asp-for="Person.CellPhone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="###-###-####" required />
+    <input asp-for="Person.CellPhone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="501-###-####" value="501-" required />
     <span asp-validation-for="Person.CellPhone" class="text-danger"></span>
 </div>
 
 <div class="form-group">
     <label asp-for="Person.WorkPhone" class="control-label"></label>
-    <input asp-for="Person.WorkPhone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="###-###-####" required />
+    <input asp-for="Person.WorkPhone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="501-###-####" value="501-" required />
     <span asp-validation-for="Person.WorkPhone" class="text-danger"></span>
 </div>
 

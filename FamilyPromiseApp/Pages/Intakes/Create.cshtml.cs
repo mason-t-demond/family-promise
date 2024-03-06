@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore; // Add this namespace for Entity Framework 
 namespace FamilyPromiseApp.Pages.Intakes
 {
     [Authorize]
-    public class CreateModel : PageModel
+    public class CreateModel : IntakesNamePageModel
     {
         private readonly FamilyPromiseApp.Data.FamilyPContext _context;
 
@@ -26,27 +26,33 @@ namespace FamilyPromiseApp.Pages.Intakes
 
         public IActionResult OnGet()
         {
-            // Populate the ReferralSelectList with data from the database
-            var referrals = _context.Referrals.ToList(); // Assuming Referrals is the DbSet in your context
-            ReferralSelectList = new SelectList(referrals, "ID", "ReferralName"); // Assuming ID is the primary key property of Referral
+            PopulateReferralDropDownList(_context);
             return Page();
         }
 
         [BindProperty]
-        public IntakeModel IntakeModel { get; set; }
+        public IntakeModel IntakeModel { get; set; }  = default!;
         
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            var emptyIntakes = new IntakeModel();
 
+         if (await TryUpdateModelAsync<IntakeModel>(
+            emptyIntakes,
+            "intakes",   // Prefix for form value.
+            c => c.ReferralAgency 
+            ))
+            {
             _context.Intake.Add(IntakeModel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+            }
+
+            PopulateReferralDropDownList(_context, emptyIntakes.ReferralAgency);
+            return Page();
+
         }
     }
 }

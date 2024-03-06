@@ -38,18 +38,17 @@
                 <input asp-for="IntakeModel.CompletionDate" class="form-control" />
                 <span asp-validation-for="IntakeModel.CompletionDate" class="text-danger"></span>
             </div>
-            @*Change to dropdown*@
-            <div class="form-group">
+            
+
+             <div class="form-group">
                 <label asp-for="IntakeModel.ReferralAgency" class="control-label"></label>
-            <select asp-for="IntakeModel.ReferralAgency" class="form-control">
-                <option value="">Select Referral Agency</option>
-                @foreach(var referralAgency in Model.ReferralSelectList)
-                {
-                    <option value="@referralAgency.Value">@referralAgency.Text</option>
-                }
-            </select>
-            <span asp-validation-for="IntakeModel.ReferralAgency" class="text-danger"></span>
+                <select asp-for="IntakeModel.ReferralAgency" class="form-control"
+                        asp-items="@Model.ReferralNameSL">
+                    <option value="">-- Select one --</option>
+                </select>
+                <span asp-validation-for="IntakeModel.ReferralAgency" class="text-danger" />
             </div>
+
             </div>
             <div class="Form-Section">
             <h4>Adults</h4>
@@ -171,12 +170,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.Reason" class="control-label"></label>
-                <input asp-for="IntakeModel.Reason" class="form-control" />
+                @Html.DropDownListFor(model => model.IntakeModel.Reason,
+                                      new SelectList(Enum.GetValues(typeof(Models.Reason1))),
+                                      "Select",
+                                      new { @class = "form-select", id = "ReasonDropdown" })
                 <span asp-validation-for="IntakeModel.Reason" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.Reason2" class="control-label"></label>
-                <input asp-for="IntakeModel.Reason2" class="form-control" />
+                @Html.DropDownListFor(model => model.IntakeModel.Reason2,
+                                      new SelectList(Enum.GetValues(typeof(Models.Reason2))),
+                                      "Select",
+                                      new { @class = "form-select", id = "Reason2Dropdown" })
                 <span asp-validation-for="IntakeModel.Reason2" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -188,6 +193,11 @@
                 <label asp-for="IntakeModel.IsEmployed" class="control-label"></label>
                 <input asp-for="IntakeModel.IsEmployed" class="form-control" />
                 <span asp-validation-for="IntakeModel.IsEmployed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntakeModel.Income" class="control-label"></label>
+                <input asp-for="IntakeModel.Income" class="form-control" />
+                <span asp-validation-for="IntakeModel.Income" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IntakeModel.TransportMethod" class="control-label"></label>
