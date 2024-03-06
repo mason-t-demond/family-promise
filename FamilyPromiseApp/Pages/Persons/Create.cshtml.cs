@@ -70,7 +70,6 @@ namespace FamilyPromiseApp.Pages.Persons
             {
                 Child kid = new Child
                 {
-                    Age = 10,
                     DateOfBirth = new DateTime(2010, 1, 1),
                     FirstMidName = "Bobby M",
                     LastName = "Broccoli"
@@ -98,7 +97,6 @@ namespace FamilyPromiseApp.Pages.Persons
             {
                 Child kid = new Child
             {
-                Age = 10,
                 DateOfBirth = new DateTime(2010, 1, 1),
                 FirstMidName = "Bobby M",
                 LastName = "Broccoli"
@@ -118,7 +116,6 @@ namespace FamilyPromiseApp.Pages.Persons
             {
                 Child kid = new Child
                 {
-                    Age = 10,
                     DateOfBirth = new DateTime(2010, 1, 1),
                     FirstMidName = "Bobby M",
                     LastName = "Broccoli"
