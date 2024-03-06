@@ -50,6 +50,8 @@ namespace FamilyPromiseApp.Pages.Persons
         public List<int> SelectedReferralIds { get; set; }
         public List<SelectListItem> AvailableReferrals { get; set; }
 
+        public int numChildren { get; set; }
+
 
 
         // [BindProperty]
@@ -66,68 +68,38 @@ namespace FamilyPromiseApp.Pages.Persons
 
             _context.Person.Add(Person);
             _context.Case.Add(Case);
-            for (int i = 0; i <3; i++)
+            Children = BuildChildren(3);
+            for (int i = 0; i <Children.Count; i++)
             {
-                Child kid = new Child
-                {
-                    Age = 10,
-                    DateOfBirth = new DateTime(2010, 1, 1),
-                    FirstMidName = "Bobby M",
-                    LastName = "Broccoli"
-                };
-                _context.Child.Add(kid);
+                _context.Child.Add(Children[i]);
             }
             await _context.SaveChangesAsync();
 
 
             return RedirectToPage("./Index");
         }
-
-        public void AddFillerChild(Child child)
+        public List<Child> BuildChildren(int numChildren)
         {
-            if (Children == null)
-            {
-                Children = new List<Child>();
-            }
-            Children.Add(child);
-        }
-
-        public List<Child> PopulateChildren(int numChildren)
-        {
-            for (int i = 0; i < numChildren; i++)
-            {
-                Child kid = new Child
-            {
-                Age = 10,
-                DateOfBirth = new DateTime(2010, 1, 1),
-                FirstMidName = "Bobby M",
-                LastName = "Broccoli"
-            };
-                AddFillerChild(kid);
-            }
-            return Children;
-        }
-
-        public List<Child> AddChildren(List<Child> children, int numChildren)
-        {
-            if (children == null)
-            {
-                children = new List<Child>();
-            }
+            List<Child> children = new List<Child>();
             for (int i = 0; i < numChildren; i++)
             {
                 Child kid = new Child
                 {
-                    Age = 10,
-                    DateOfBirth = new DateTime(2010, 1, 1),
-                    FirstMidName = "Bobby M",
-                    LastName = "Broccoli"
+                    FirstMidName = "Ricky",
+                    LastName = "Ricardo",
                 };
                 children.Add(kid);
             }
             return children;
         }
-        
+        public IActionResult OnPostNumChildren(int numChildren)
+        {    
+            Children = BuildChildren(numChildren);
+            // Optionally return a response
+            return new JsonResult(Children);
+        }
+
+
 
     }
 }

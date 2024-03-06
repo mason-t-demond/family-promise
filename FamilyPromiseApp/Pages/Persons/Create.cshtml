@@ -122,7 +122,7 @@
         <!--When you select a number of children, print the number to the console-->
             <div class="form-group childSection">
                 <label asp-for="Person.ChildNum" class="control-label" for="numChild"></label>
-                <input asp-for="Person.ChildNum" id="numChild"class="form-control" type="number" min="1" value="1" oninput="validity.valid||(value='1');" onchange="printSelectedNumber()" />
+                <input asp-for="Person.ChildNum" id="numChild"class="form-control" type="number" min="1" value="1" oninput="validity.valid||(value='1');" onchange="onNumChildrenSelected()" />
                 <span asp-validation-for="Person.ChildNum" class="text-danger"></span>
             </div>
             <div class="form-group childSection">
@@ -281,6 +281,35 @@
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
             </div>
+
+        <script>
+    function onNumChildrenSelected() {
+        var numChildren = 6;
+        @* var numChildren = document.getElementById('numChild').value; *@
+        if (numChildren == null) {
+            console.log("No number of children selected.");
+            return;
+        }
+        console.log("Number of Children Selected:", numChildren);
+        @* if (numChildren != null) {
+            console.log("Creating children...");
+            numChildren = parseInt(numChildren);
+            console.log("Number of Children to Create:", numChildren);
+            @Model.numChildren = numChildren;
+        } *@
+
+        @* if (numChildren > 1) {
+            console.log("Creating children...");
+            numChildren = parseInt(numChildren);
+            console.log("Number of Children to Create:", numChildren);
+            @Model.BuildChildren(4);
+            console
+        } *@
+        // numChildren to int
+        @* numChildren = parseInt(numChildren);
+        @Model.BuildChildren(4); *@
+    }
+</script>
            
         <!--Function for hiding forms if no is selected, adds new adults when needed-->
         <script>
