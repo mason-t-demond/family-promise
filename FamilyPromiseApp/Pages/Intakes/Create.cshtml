@@ -38,18 +38,17 @@
                 <input asp-for="IntakeModel.CompletionDate" class="form-control" />
                 <span asp-validation-for="IntakeModel.CompletionDate" class="text-danger"></span>
             </div>
-            @*Change to dropdown*@
-            <div class="form-group">
+            
+
+             <div class="form-group">
                 <label asp-for="IntakeModel.ReferralAgency" class="control-label"></label>
-            <select asp-for="IntakeModel.ReferralAgency" class="form-control">
-                <option value="">Select Referral Agency</option>
-                @foreach(var referralAgency in Model.ReferralSelectList)
-                {
-                    <option value="@referralAgency.Value">@referralAgency.Text</option>
-                }
-            </select>
-            <span asp-validation-for="IntakeModel.ReferralAgency" class="text-danger"></span>
+                <select asp-for="IntakeModel.ReferralAgency" class="form-control"
+                        asp-items="@Model.ReferralNameSL">
+                    <option value="">-- Select one --</option>
+                </select>
+                <span asp-validation-for="IntakeModel.ReferralAgency" class="text-danger" />
             </div>
+
             </div>
             <div class="Form-Section">
             <h4>Adults</h4>

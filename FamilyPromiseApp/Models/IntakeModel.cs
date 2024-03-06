@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using FamilyPromiseApp.Data;
+using FamilyPromiseApp.Models;
 
 
 namespace FamilyPromiseApp.Models
@@ -62,7 +63,7 @@ namespace FamilyPromiseApp.Models
         public string TransportMethod { get; set; }
 
         [Display(Name = "Referring Agency / Source:")]
-        public string ReferralAgency { get; set;}
+        public Referral? ReferralAgency { get; set;}
 
         [Display(Name = "Employment")]
         public string IsEmployed { get; set; }
@@ -126,13 +127,13 @@ namespace FamilyPromiseApp.Models
         
         
         [Display(Name = "Date Admitted")]
-        public int DateAdmitted { get; set; }
+        public DateTime? DateAdmitted { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         
         
         [Display(Name = "Completion Date")]
-        public int CompletionDate { get; set; }
+        public DateTime? CompletionDate { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         

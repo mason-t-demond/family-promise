@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20240228091323_ChildrenInSchoolUpdate")]
-    partial class ChildrenInSchoolUpdate
+    [Migration("20240306203800_intakeformupdate")]
+    partial class intakeformupdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,14 +118,14 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<int>("ChildSchool")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CompletionDate")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime?>("CompletionDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DOB")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DateAdmitted")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime?>("DateAdmitted")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateToday")
                         .HasColumnType("TEXT");
@@ -161,6 +161,9 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<int>("IDNum")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Income")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("IsEmployed")
                         .HasColumnType("TEXT");
 
@@ -176,17 +179,17 @@ namespace FamilyPromiseApp.Migrations
                     b.Property<string>("Race")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Reason")
+                    b.Property<int?>("Reason")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Reason2")
+                    b.Property<int?>("Reason2")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("RecentHousing")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ReferralAgency")
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("ReferralAgencyID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Relationships")
                         .HasColumnType("TEXT");
@@ -216,6 +219,8 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ReferralAgencyID");
 
                     b.ToTable("IntakeModel", null, t =>
                         {
@@ -556,6 +561,15 @@ namespace FamilyPromiseApp.Migrations
                     b.ToTable("SelectListGroup");
                 });
 
+            modelBuilder.Entity("FamilyPromiseApp.Models.IntakeModel", b =>
+                {
+                    b.HasOne("FamilyPromiseApp.Models.Referral", "ReferralAgency")
+                        .WithMany("InTake")
+                        .HasForeignKey("ReferralAgencyID");
+
+                    b.Navigation("ReferralAgency");
+                });
+
             modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
                 {
                     b.HasOne("FamilyPromiseApp.Models.Case", "Case")
@@ -626,6 +640,11 @@ namespace FamilyPromiseApp.Migrations
             modelBuilder.Entity("FamilyPromiseApp.Models.Person", b =>
                 {
                     b.Navigation("Referral");
+                });
+
+            modelBuilder.Entity("FamilyPromiseApp.Models.Referral", b =>
+                {
+                    b.Navigation("InTake");
                 });
 #pragma warning restore 612, 618
         }

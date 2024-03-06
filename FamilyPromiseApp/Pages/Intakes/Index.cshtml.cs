@@ -11,7 +11,7 @@ using FamilyPromiseApp.Models;
 
 namespace FamilyPromiseApp.Pages.Intakes
 {
-    public class IndexModel : PageModel
+    public class IndexModel : IntakesNamePageModel
     {
         private readonly FamilyPromiseApp.Data.FamilyPContext _context;
 
