@@ -9,6 +9,7 @@ using FamilyPromiseApp.Data;
 using FamilyPromiseApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 
 
 namespace FamilyPromiseApp.Pages.Persons
@@ -43,6 +44,9 @@ namespace FamilyPromiseApp.Pages.Persons
 
         [BindProperty]
         public Case Case { get; set; }
+        public Child Child { get; set; }
+        public List<Child> Children { get; set; }
+        
         public List<int> SelectedReferralIds { get; set; }
         public List<SelectListItem> AvailableReferrals { get; set; }
 
@@ -62,9 +66,68 @@ namespace FamilyPromiseApp.Pages.Persons
 
             _context.Person.Add(Person);
             _context.Case.Add(Case);
+            for (int i = 0; i <3; i++)
+            {
+                Child kid = new Child
+                {
+                    Age = 10,
+                    DateOfBirth = new DateTime(2010, 1, 1),
+                    FirstMidName = "Bobby M",
+                    LastName = "Broccoli"
+                };
+                _context.Child.Add(kid);
+            }
             await _context.SaveChangesAsync();
+
 
             return RedirectToPage("./Index");
         }
+
+        public void AddFillerChild(Child child)
+        {
+            if (Children == null)
+            {
+                Children = new List<Child>();
+            }
+            Children.Add(child);
+        }
+
+        public List<Child> PopulateChildren(int numChildren)
+        {
+            for (int i = 0; i < numChildren; i++)
+            {
+                Child kid = new Child
+            {
+                Age = 10,
+                DateOfBirth = new DateTime(2010, 1, 1),
+                FirstMidName = "Bobby M",
+                LastName = "Broccoli"
+            };
+                AddFillerChild(kid);
+            }
+            return Children;
+        }
+
+        public List<Child> AddChildren(List<Child> children, int numChildren)
+        {
+            if (children == null)
+            {
+                children = new List<Child>();
+            }
+            for (int i = 0; i < numChildren; i++)
+            {
+                Child kid = new Child
+                {
+                    Age = 10,
+                    DateOfBirth = new DateTime(2010, 1, 1),
+                    FirstMidName = "Bobby M",
+                    LastName = "Broccoli"
+                };
+                children.Add(kid);
+            }
+            return children;
+        }
+        
+
     }
 }

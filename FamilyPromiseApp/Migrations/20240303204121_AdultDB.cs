@@ -6,11 +6,32 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FamilyPromiseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class ChildrenInSchoolUpdate : Migration
+    public partial class AdultDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Adult",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CaseID = table.Column<int>(type: "INTEGER", nullable: false),
+                    PersonID = table.Column<int>(type: "INTEGER", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
+                    FirstMidName = table.Column<string>(type: "TEXT", nullable: true),
+                    Age = table.Column<int>(type: "INTEGER", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CellPhone = table.Column<string>(type: "TEXT", nullable: true),
+                    WorkPhone = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Adult", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -64,14 +85,32 @@ namespace FamilyPromiseApp.Migrations
                     IsHoused = table.Column<string>(type: "TEXT", nullable: true),
                     income = table.Column<string>(type: "TEXT", nullable: true),
                     IsEmployed = table.Column<string>(type: "TEXT", nullable: true),
-                    TransportMethod = table.Column<string>(type: "TEXT", nullable: true),
-                    Substance = table.Column<string>(type: "TEXT", nullable: true),
+                    TransportMethod = table.Column<int>(type: "INTEGER", nullable: false),
+                    Substance = table.Column<int>(type: "INTEGER", nullable: false),
                     HealthChallenge = table.Column<string>(type: "TEXT", nullable: true),
                     DomesticViolenceHistory = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Case", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Child",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CaseID = table.Column<int>(type: "INTEGER", nullable: false),
+                    PersonID = table.Column<int>(type: "INTEGER", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
+                    FirstMidName = table.Column<string>(type: "TEXT", nullable: true),
+                    Age = table.Column<int>(type: "INTEGER", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Child", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -377,6 +416,9 @@ namespace FamilyPromiseApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Adult");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -390,6 +432,9 @@ namespace FamilyPromiseApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Child");
 
             migrationBuilder.DropTable(
                 name: "IntakeModel");
