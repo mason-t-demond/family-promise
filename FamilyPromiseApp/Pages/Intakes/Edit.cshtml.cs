@@ -11,7 +11,7 @@ using FamilyPromiseApp.Models;
 
 namespace FamilyPromiseApp.Pages.Intakes
 {
-    public class EditModel : PageModel
+    public class EditModel : IntakesNamePageModel
     {
         private readonly FamilyPromiseApp.Data.FamilyPContext _context;
 
