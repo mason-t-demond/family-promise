@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FamilyPromiseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class AdultDB : Migration
+    public partial class PersonFK : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -310,7 +310,6 @@ namespace FamilyPromiseApp.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
                     FirstName = table.Column<string>(type: "TEXT", nullable: true),
-                    Age = table.Column<int>(type: "INTEGER", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CellPhone = table.Column<string>(type: "TEXT", nullable: true),
                     WorkPhone = table.Column<string>(type: "TEXT", nullable: true),
@@ -318,7 +317,6 @@ namespace FamilyPromiseApp.Migrations
                     HouseHoldMemberExist = table.Column<int>(type: "INTEGER", nullable: true),
                     HouseHoldNum = table.Column<int>(type: "INTEGER", nullable: false),
                     AdultName = table.Column<string>(type: "TEXT", nullable: true),
-                    AdultAge = table.Column<int>(type: "INTEGER", nullable: false),
                     AdultDateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
                     AdultCellPhone = table.Column<string>(type: "TEXT", nullable: true),
                     AdultWorkPhone = table.Column<string>(type: "TEXT", nullable: true),
