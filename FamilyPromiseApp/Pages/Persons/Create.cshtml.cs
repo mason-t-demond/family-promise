@@ -36,7 +36,9 @@ namespace FamilyPromiseApp.Pages.Persons
         [BindProperty]
         public Case Case { get; set; }
         public Child Child { get; set; }
+        public Adult Adult { get; set; }
         public List<Child> Children { get; set; }
+        public List<Adult> Adults { get; set; }
         
         public List<int> SelectedReferralIds { get; set; }
         public List<SelectListItem> AvailableReferrals { get; set; }
@@ -52,10 +54,13 @@ namespace FamilyPromiseApp.Pages.Persons
             // find the highest ID of any person in the DB
             Case = new Case();
             Children = new List<Child>();
+            Adults = new List<Adult>();
             for (int i = 0; i < 12; i++)
-            {
+            {   
                 Child = new Child();
-                Children.Add(Child);                
+                Children.Add(Child); 
+                Adult = new Adult();
+                Adults.Add(Adult);               
             }
             Debug.WriteLine("Number of Children at Initial: " + Children.Count());
 
@@ -86,23 +91,40 @@ namespace FamilyPromiseApp.Pages.Persons
         {
             return Page();
         }
-        var BackChildren = new List<Child>();
-        int numChild = 1;
-        string requestNum = Request.Form.Keys.FirstOrDefault(key => key == "Person.ChildNum");
-        string requestValue = Request.Form[requestNum];
-        numChild = int.Parse(requestValue);
-        Console.WriteLine("Number of Children: " + numChild);
         foreach (string name in Request.Form.Keys) {
             string value = Request.Form[name];
             Console.WriteLine("The name of this form is: " + name);
             Console.WriteLine("The value of this form is: " + value);
         }
+        var BackChildren = new List<Child>();
+        var BackAdults = new List<Adult>();
+        int numAdult = 0;
+        int numChild = 0;
+        string requestNumAdult = Request.Form.Keys.FirstOrDefault(key => key == "Person.HouseHoldNum");
+        if (requestNumAdult != null) {
+            string requestValueAdult = Request.Form[requestNumAdult];
+            numAdult = int.Parse(requestValueAdult);
+        }
+        string requestNumChild = Request.Form.Keys.FirstOrDefault(key => key == "Person.ChildNum");
+        if (requestNumChild != null) {
+            string requestValueChild = Request.Form[requestNumChild];
+            numChild = int.Parse(requestValueChild);
+        }
+        
+
+        Console.WriteLine("Number of Adults: " + numAdult);
+        Console.WriteLine("Number of Children: " + numChild);
+        
         _context.Person.Add(Person);
         await _context.SaveChangesAsync();
         _context.Case.Add(Case);
         var maxID = 0;
+        var maxIDAdult = 0;
         if (_context.Child.Any()){
             maxID = _context.Child.Max(c => c.ID);
+        }
+        if (_context.Adult.Any()){
+            maxIDAdult = _context.Adult.Max(a => a.ID);
         }
         for (int i = 1; i < numChild +1; i++)
         {
@@ -122,6 +144,28 @@ namespace FamilyPromiseApp.Pages.Persons
         {
             _context.Child.Add(BackChildren[i]);
             Console.WriteLine("Child added to DB");
+        }
+        for (int i = 1; i < numAdult +1; i++)
+        {
+            Adult = new Adult
+            {
+                ID = maxIDAdult + 1 + i,
+                PersonID = Person.ID,
+                FirstMidName = Request.Form["Adults[" + i + "].FirstMidName"],
+                LastName = Request.Form["Adults[" + i + "].LastName"],
+                DateOfBirth = DateTime.Parse(Request.Form["Adults[" + i + "].DateOfBirth"]),
+                AdultNumber = i,
+                CellPhone = Request.Form["Adults[" + i + "].CellPhone"],
+                WorkPhone = Request.Form["Adults[" + i + "].WorkPhone"],
+                Email = Request.Form["Adults[" + i + "].Email"],
+                CaseID = Case.ID,
+            };
+            BackAdults.Add(Adult);
+        }
+        for (int i = 0; i <BackAdults.Count; i++)
+        {
+            _context.Adult.Add(BackAdults[i]);
+            Console.WriteLine("Adult added to DB");
         }
         await _context.SaveChangesAsync();
         return RedirectToPage("./Index");

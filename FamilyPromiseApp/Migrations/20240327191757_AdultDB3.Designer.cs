@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20240313201656_ChildNum")]
-    partial class ChildNum
+    [Migration("20240327191757_AdultDB3")]
+    partial class AdultDB3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,9 @@ namespace FamilyPromiseApp.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AdultNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Age")
