@@ -355,6 +355,95 @@ namespace FamilyPromiseApp.Data
             };
             context.Resource.AddRange(resources);
             context.SaveChanges();
+
+            var client1 = new Person
+            {
+                //ID = 1???
+                LastName = "Doe",
+                FirstMidName = "John",
+                DateOfBirth = DateTime.Parse("1967-02-14"),
+                CellPhone = "501-000-0000",
+                Email = "john.doe@gmail.com"
+            };
+
+            var client2 = new Person
+            {
+                //ID = 2???
+                LastName = "Doe",
+                FirstMidName = "Jane",
+                DateOfBirth = DateTime.Parse("1970-02-14"),
+                CellPhone = "501-000-0001",
+                Email = "jane.doe@gmail.com"
+            };
+
+            var client3 = new Person
+            {
+                //ID = 3???
+                LastName = "Swenson",
+                FirstMidName = "Swen",
+                DateOfBirth = DateTime.Parse("1995-01-13"),
+                CellPhone = "501-000-0000",
+                Email = "swenssson@gmail.com"
+            };
+
+            var clients = new Person[]
+            {
+               client1,
+               client2,
+               client3
+            };
+
+            context.Persons.AddRange(clients);
+            context.SaveChanges();
+
+            var case1 = new Case
+            {
+                //ID = 1???
+                TakenBy = "Mason",
+                Date = DateTime.Parse("2024-02-29"),
+                ReferringAgency = Stew_Pot.ReferralName,
+                IsHoused = "Homeless",
+                IsEmployed = "Unemployed",
+                Substance = Substance.Heroin,
+                HealthChallenge = "Disability",
+                DomesticViolenceHistory = "None"
+            };
+
+            var case2 = new Case
+            {
+                //ID = 2???
+                TakenBy = "Mason",
+                Date = DateTime.Parse("2024-02-29"),
+                ReferringAgency = Stew_Pot.ReferralName,
+                IsHoused = "Homeless",
+                IsEmployed = "Unemployed",
+                Substance = Substance.Heroin,
+                HealthChallenge = "Disability",
+                DomesticViolenceHistory = "None"
+            };
+
+            var case3 = new Case
+            {
+                //ID = 3???
+                TakenBy = "Mason",
+                Date = DateTime.Parse("2024-03-04"),
+                ReferringAgency = St_Vincent_De_Paul_Assistance_Program.ReferralName,
+                IsHoused = "Homeless",
+                IsEmployed = "Unemployed",
+                Substance = Substance.Inhalants,
+                HealthChallenge = "None",
+                DomesticViolenceHistory = "None"
+            };
+
+            var cases = new Case[]
+            {
+               case1,
+               case2,
+               case3
+            };
+
+            context.Case.AddRange(cases);
+            context.SaveChanges();
         }
     }
 }
