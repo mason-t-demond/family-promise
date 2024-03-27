@@ -23,5 +23,7 @@ public class Child {
     [Display (Name = "Date of Birth")]
     public DateTime DateOfBirth { get; set; }
 
+    public int ChildNumber { get; set; }
+
 
 }

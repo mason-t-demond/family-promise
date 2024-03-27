@@ -13,6 +13,7 @@ using System.Security.Cryptography.Xml;
 using SQLitePCL;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Globalization;
 
 
 namespace FamilyPromiseApp.Pages.Persons
@@ -29,32 +30,6 @@ namespace FamilyPromiseApp.Pages.Persons
             _logger = ilogger;
             _context = context;
         }
-
-        public IActionResult OnGet()
-        {
-            _logger.LogInformation("OnGet called" );
-            Debug.WriteLine("OnGet called" );
-            Console.WriteLine("OnGet called" );
-            Person = new Person();
-            Case = new Case();
-            List<Child> Children = new List<Child>();
-            for (int i = 0; i < 12; i++)
-            {
-                Child = new Child();
-                Children.Add(Child);                
-            }
-
-            Person.AvailableReferrals = _context.Referrals
-                .Select(r => new SelectListItem
-                {
-                    Value = r.ReferralName.ToString(),
-                    Text = r.ReferralName
-                })
-                .ToList();
-
-            return Page();
-        }
-
         [BindProperty]
         public Person Person { get; set; }
 
@@ -68,6 +43,36 @@ namespace FamilyPromiseApp.Pages.Persons
 
         public int numChildren { get; set; }
 
+        public IActionResult OnGet()
+        {
+            _logger.LogInformation("OnGet called" );
+            Debug.WriteLine("OnGet called" );
+            Console.WriteLine("OnGet called" );
+            Person = new Person();
+            // find the highest ID of any person in the DB
+            Case = new Case();
+            Children = new List<Child>();
+            for (int i = 0; i < 12; i++)
+            {
+                Child = new Child();
+                Children.Add(Child);                
+            }
+            Debug.WriteLine("Number of Children at Initial: " + Children.Count());
+
+
+            Person.AvailableReferrals = _context.Referrals
+                .Select(r => new SelectListItem
+                {
+                    Value = r.ReferralName.ToString(),
+                    Text = r.ReferralName
+                })
+                .ToList();
+
+            return Page();
+        }
+
+        
+
 
 
         // [BindProperty]
@@ -77,40 +82,49 @@ namespace FamilyPromiseApp.Pages.Persons
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
+        var BackChildren = new List<Child>();
+        int numChild = 1;
+        string requestNum = Request.Form.Keys.FirstOrDefault(key => key == "Person.ChildNum");
+        string requestValue = Request.Form[requestNum];
+        numChild = int.Parse(requestValue);
+        Console.WriteLine("Number of Children: " + numChild);
+        foreach (string name in Request.Form.Keys) {
+            string value = Request.Form[name];
+            Console.WriteLine("The name of this form is: " + name);
+            Console.WriteLine("The value of this form is: " + value);
+        }
+        _context.Person.Add(Person);
+        await _context.SaveChangesAsync();
+        _context.Case.Add(Case);
+        var maxID = 0;
+        if (_context.Child.Any()){
+            maxID = _context.Child.Max(c => c.ID);
+        }
+        for (int i = 1; i < numChild +1; i++)
+        {
+            Child = new Child
             {
-                return Page();
-            }
-            int PerID = Person.ID;
-            _context.Person.Add(Person);
-            _context.Case.Add(Case);
-            List<Child> Children = new List<Child>();
-            // find the highest ID of any child in the DB
-            // find the Person who is getting added to the DB
-            int maxID = _context.Child.Max(c => c.ID);
-            for (int j = 0; j < 3; j++) {
-                Child = new Child
-                {
-                    // set the child's ID to the highest ID in the DB
-                    ID = maxID + 1 + j,
-                    PersonID = PerID,
-                    FirstMidName = "Baxter",
-                    LastName = Person.LastName,
-                };
-                Children.Add(Child);
-                _logger.LogInformation("Child added to list");
-                // put info into the child object
-                // function addDataChildren(Children)
-            }
-            // add the children to the DB
-            for (int i = 0; i <Children.Count; i++)
-            {
-                _context.Child.Add(Children[i]);
-            }
-            await _context.SaveChangesAsync();
-
-
-            return RedirectToPage("./Index");
+                ID = maxID + 1 + i,
+                PersonID = Person.ID,
+                FirstMidName = Request.Form["Children[" + i + "].FirstMidName"],
+                LastName = Request.Form["Children[" + i + "].LastName"],
+                DateOfBirth = DateTime.Parse(Request.Form["Children[" + i + "].DateOfBirth"]),
+                ChildNumber = i,
+                CaseID = Case.ID
+            };
+            BackChildren.Add(Child);
+        }
+        for (int i = 0; i <BackChildren.Count; i++)
+        {
+            _context.Child.Add(BackChildren[i]);
+            Console.WriteLine("Child added to DB");
+        }
+        await _context.SaveChangesAsync();
+        return RedirectToPage("./Index");
         }
 
         public List<Child> AddDataChildren(List<Child> Children)
