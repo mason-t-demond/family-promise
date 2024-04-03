@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20240311175540_RemovedAge")]
-    partial class RemovedAge
+    [Migration("20240327205111_ClientDisplay")]
+    partial class ClientDisplay
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,9 @@ namespace FamilyPromiseApp.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AdultNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Age")
@@ -112,6 +115,9 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CaseID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ChildNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DateOfBirth")

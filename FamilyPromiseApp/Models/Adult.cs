@@ -17,6 +17,8 @@ public class Adult {
     public string CellPhone { get; set; }
     public string WorkPhone { get; set; }
     public string Email { get; set; }
+
+    public int AdultNumber { get; set; }
     
 
 
