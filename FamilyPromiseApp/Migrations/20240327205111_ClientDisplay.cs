@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FamilyPromiseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class AdultDB3 : Migration
+    public partial class ClientDisplay : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

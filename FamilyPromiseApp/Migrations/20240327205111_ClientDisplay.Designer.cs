@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyPromiseApp.Migrations
 {
     [DbContext(typeof(FamilyPContext))]
-    [Migration("20240327191757_AdultDB3")]
-    partial class AdultDB3
+    [Migration("20240327205111_ClientDisplay")]
+    partial class ClientDisplay
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
