@@ -23,6 +23,9 @@ namespace FamilyPromiseApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("AdultNumber")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
 
@@ -109,6 +112,9 @@ namespace FamilyPromiseApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CaseID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ChildNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DateOfBirth")

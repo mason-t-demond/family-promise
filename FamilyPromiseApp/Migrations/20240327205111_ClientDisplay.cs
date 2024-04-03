@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FamilyPromiseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class RemovedAge : Migration
+    public partial class ClientDisplay : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -25,7 +25,8 @@ namespace FamilyPromiseApp.Migrations
                     DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CellPhone = table.Column<string>(type: "TEXT", nullable: true),
                     WorkPhone = table.Column<string>(type: "TEXT", nullable: true),
-                    Email = table.Column<string>(type: "TEXT", nullable: true)
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    AdultNumber = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -105,7 +106,8 @@ namespace FamilyPromiseApp.Migrations
                     PersonID = table.Column<int>(type: "INTEGER", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
                     FirstMidName = table.Column<string>(type: "TEXT", nullable: true),
-                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ChildNumber = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
