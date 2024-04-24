@@ -119,7 +119,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Were you or are you a part of the Work Study Program?")]
         public string WorkStudy { get; set; }
 
-        [Display(Name = "How many adults?")]
+        [Display(Name = "# of Adults")]
         public string AdultNum { get; set; }
 
         
@@ -151,7 +151,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Where is your spouse located?")]
         public string SpouseLocation { get; set; }
 
-        [Display(Name = "How many children do you have in school?")]
+        [Display(Name = "# of Children")]
         public int ChildSchool { get; set; }
 
         [Display(Name = "Grade of Child")]
