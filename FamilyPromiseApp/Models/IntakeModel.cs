@@ -56,6 +56,7 @@ namespace FamilyPromiseApp.Models
 
     public enum GradeLevel
     {
+        None,
         Kindergarten,
         First,
         Second,
@@ -88,13 +89,16 @@ namespace FamilyPromiseApp.Models
         public string TakenByNow { get; set; }
 
         [DataType(DataType.Time)]
+        [Display(Name = "Current Time")]
         public DateTime TimeNow { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
+        [Display(Name = "Current Date")]
         public DateTime DateToday { get; set;}
 
-        [Display(Name = "If over 16: Highest Form of Education: High School Dropout, High School, GED, Started College, Completed Degree, Post High School Vocational Completion, etc.")]
+        [Display(Name = "Highest Form of Education")]
         public string Education { get; set; }
 
         [Display(Name = "Transportation Method")]
@@ -116,7 +120,7 @@ namespace FamilyPromiseApp.Models
         public string Relationships { get; set; }
 
 
-        [Display(Name = "Were you or are you a part of the Work Study Program?")]
+        [Display(Name = "Were/Are you part of the Work Study Program?")]
         public string WorkStudy { get; set; }
 
         [Display(Name = "# of Adults")]
@@ -126,10 +130,10 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "SSN")]
         public string SSN { get; set; }
 
-        [Display(Name = "What is your main reason for being homeless? Eviction, Kicked Out, Diasaster, Moved, Other")]
+        [Display(Name = "Primary Reason of Homelessness")]
         public Reason1 Reason { get; set; }
 
-        [Display(Name = "What is your secondary reason for being homeless? Lost Job, Family Dissolution (Death, Divorce, etc.), Benefits Stopped, Medical Problems, Other")]
+        [Display(Name = "Primary Reason of Homelessness")]
         public Reason2? Reason2 { get; set; }
 
         [Display(Name = "ID Number")]
@@ -218,7 +222,7 @@ namespace FamilyPromiseApp.Models
         [Display(Name = "Most Recent Housing")]
         public RecentHousing? RecentHousing { get; set; }
 
-        [Display(Name = "What type of housing were you living in?")]
+        [Display(Name = "Type of Housing")]
         public HouseType? HouseType { get; set; }
 
         [Display(Name = "Number of children in household")]
