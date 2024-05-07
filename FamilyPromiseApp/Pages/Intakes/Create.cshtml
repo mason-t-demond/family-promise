@@ -9,7 +9,7 @@
 
 @{
     var defaultDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
-    var defaultChildDateOfBirth = DateTime.Today.AddYears(-30).ToString("yyyy-MM-dd");
+    var defaultChildDateOfBirth = DateTime.Today.AddYears(-10).ToString("yyyy-MM-dd");
     var dateOfSubmission = DateTime.Today.ToString("yyyy-MM-dd");
     var timeOfSubmission = DateTime.Now.ToString("HH:mm");
 }
@@ -376,7 +376,7 @@
                 for (var i = 2; i <= numAdults; i++) {
                     var sectionHtml = `
                         <div class="col-md-4">
-                            <b> Adult ${i} Information </b>
+                            <b> Adult ${i}'s Information </b>
                             <div class="form-group">
                                 <label asp-for="IntakeModel.LastName" class="control-label">Adult ${i}'s Last Name</label>
                                 <input asp-for="IntakeModel.LastName" class="form-control" />
@@ -501,6 +501,7 @@
                 for (var i = 1; i <= numChildren; i++) {
                     var sectionHtml = `
                         <div class="col-md-4">
+                            <b> Child ${i}'s Information </b>
                             <div class="form-group">
                                 <label class="control-label" >Child ${i}'s Last Name</label>
                                 <input class="form-control" />
@@ -518,6 +519,7 @@
                                 <input asp-for="IntakeModel.ChildGrade" class="form-control" type="number" min="0" max="12" value="0" />
                                 <span asp-validation-for="IntakeModel.ChildGrade" class="text-danger"></span>
                             </div>
+                            <br>
                         </div>
                         `;
                     console.log("I :: " + i);
